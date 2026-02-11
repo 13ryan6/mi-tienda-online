@@ -1,0 +1,13 @@
+# Archivos de sistema que no deben subirse a GitHub
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Carpetas de editores
+.vscode/
+.idea/
+
+# Archivos temporales
+*.tmp
+*.bak
+*~

@@ -1,0 +1,29 @@
+# 📸 INSTRUCCIONES PARA LAS FOTOS
+
+## ¿Cómo agregar tus fotos?
+
+1. **Borra estos archivos de instrucciones** (`INSTRUCCIONES.txt`)
+2. **Copia tus fotos** en esta carpeta
+3. **Nombra tus fotos** como: `producto1.jpg`, `producto2.jpg`, etc.
+
+## Recomendaciones:
+
+- **Formato**: JPG o PNG
+- **Tamaño**: Máximo 1MB por foto (usa TinyPNG.com para optimizar)
+- **Dimensiones recomendadas**: 800x800 píxeles (cuadradas)
+- **Calidad**: Buena iluminación, fondo limpio
+
+## Ejemplos de nombres de archivo:
+
+✅ BIEN:
+- `cuadro-flores.jpg`
+- `producto1.jpg`
+- `ramo-rosas.jpg`
+
+❌ MAL:
+- `Mi Foto #1.jpg` (tiene espacios y caracteres especiales)
+- `IMG_20240101.jpg` (no es descriptivo)
+
+---
+
+Una vez que tengas tus fotos aquí, actualiza el archivo `index.html` con los nombres correctos.

@@ -1,0 +1,311 @@
+/* 
+===============================================
+ESTILOS GENERALES
+===============================================
+Aquí puedes cambiar los colores principales
+*/
+
+:root {
+    /* CAMBIA ESTOS COLORES SI QUIERES */
+    --color-principal: #667eea;
+    --color-secundario: #764ba2;
+    --color-whatsapp: #25d366;
+    --color-fondo: #fdf8f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--color-fondo);
+}
+
+/* 
+===============================================
+HEADER (CABECERA)
+===============================================
+*/
+header {
+    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* 
+===============================================
+NAVEGACIÓN
+===============================================
+*/
+nav {
+    background-color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-principal);
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: var(--color-secundario);
+}
+
+/* 
+===============================================
+CONTENEDOR PRINCIPAL
+===============================================
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* 
+===============================================
+TÍTULOS DE SECCIÓN
+===============================================
+*/
+.section-title {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    font-size: 2rem;
+    color: var(--color-principal);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+}
+
+/* 
+===============================================
+GRID DE PRODUCTOS
+===============================================
+*/
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* 
+===============================================
+TARJETAS DE PRODUCTO
+===============================================
+*/
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+/* 
+===============================================
+IMÁGENES DE PRODUCTO
+===============================================
+Aquí es donde se muestran tus fotos
+*/
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Imagen por defecto si no hay foto */
+.product-card img[src*=".jpg"]:not([src]) {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-info h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.product-info p {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    color: var(--color-principal);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/* 
+===============================================
+BOTÓN DE WHATSAPP FLOTANTE
+===============================================
+*/
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: var(--color-whatsapp);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+}
+
+/* 
+===============================================
+SECCIÓN DE CONTACTO
+===============================================
+*/
+.contact-section {
+    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: var(--color-whatsapp);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #1fa855;
+    transform: scale(1.05);
+}
+
+/* 
+===============================================
+FOOTER (PIE DE PÁGINA)
+===============================================
+*/
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+/* 
+===============================================
+RESPONSIVE (MÓVILES Y TABLETS)
+===============================================
+*/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
