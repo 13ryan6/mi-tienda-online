@@ -1,16 +1,23 @@
 /* 
 ===============================================
-ESTILOS GENERALES
+VERSIÓN 2: MODERNO Y VIBRANTE
 ===============================================
-Aquí puedes cambiar los colores principales
+Diseño juvenil con colores vivos y animaciones dinámicas
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+
 :root {
-    /* CAMBIA ESTOS COLORES SI QUIERES */
-    --color-principal: #667eea;
-    --color-secundario: #764ba2;
+    /* Paleta de colores vibrantes */
+    --color-principal: #ff6b9d;
+    --color-secundario: #c44569;
+    --color-acento: #feca57;
+    --color-oscuro: #2d3436;
     --color-whatsapp: #25d366;
-    --color-fondo: #fdf8f5;
+    --color-fondo: #fff;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 * {
@@ -20,44 +27,110 @@ Aquí puedes cambiar los colores principales
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: var(--color-fondo);
+    color: var(--color-oscuro);
+    background: var(--color-fondo);
+    overflow-x: hidden;
 }
 
-/* 
-===============================================
-HEADER (CABECERA)
-===============================================
-*/
+/* ===============================================
+   HEADER CON EFECTO GEOMÉTRICO
+   =============================================== */
 header {
-    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+    position: relative;
+    background: var(--gradient-2);
     color: white;
-    padding: 2rem 0;
+    padding: 5rem 2rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+/* Formas geométricas animadas de fondo */
+header::before,
+header::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+
+header::before {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    right: -100px;
+    animation: rotate 20s linear infinite;
+}
+
+header::after {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    left: -100px;
+    animation: rotate 15s linear infinite reverse;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    animation: bounceIn 1s ease-out;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 
 header p {
-    font-size: 1.2rem;
-    opacity: 0.95;
+    font-size: 1.4rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
-/* 
-===============================================
-NAVEGACIÓN
-===============================================
-*/
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================================
+   NAVEGACIÓN MODERNA CON PILLS
+   =============================================== */
 nav {
-    background-color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: white;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -68,244 +141,429 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0 1rem;
 }
 
 nav a {
     text-decoration: none;
-    color: var(--color-principal);
-    font-weight: 600;
-    transition: color 0.3s;
-    font-size: 1.1rem;
+    color: var(--color-oscuro);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    background: #f8f9fa;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
 }
 
 nav a:hover {
-    color: var(--color-secundario);
+    background: var(--gradient-2);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(245, 87, 108, 0.3);
 }
 
-/* 
-===============================================
-CONTENEDOR PRINCIPAL
-===============================================
-*/
+/* ===============================================
+   CONTENEDOR
+   =============================================== */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 4rem 2rem;
 }
 
-/* 
-===============================================
-TÍTULOS DE SECCIÓN
-===============================================
-*/
+/* ===============================================
+   TÍTULOS CON EFECTO DE COLOR
+   =============================================== */
 .section-title {
     text-align: center;
-    margin: 3rem 0 2rem;
-    font-size: 2rem;
-    color: var(--color-principal);
+    margin: 4rem 0 3rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     position: relative;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
+    animation: slideInLeft 0.8s ease-out;
 }
 
+/* Línea decorativa ondulada */
 .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+    width: 200px;
+    height: 5px;
+    background: var(--gradient-2);
+    border-radius: 10px;
 }
 
-/* 
-===============================================
-GRID DE PRODUCTOS
-===============================================
-*/
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===============================================
+   GRID RESPONSIVE
+   =============================================== */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
 }
 
-/* 
-===============================================
-TARJETAS DE PRODUCTO
-===============================================
-*/
+/* ===============================================
+   TARJETAS CON EFECTO NEOMORFISMO
+   =============================================== */
 .product-card {
     background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 30px;
+    overflow: visible;
     cursor: pointer;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.1),
+        0 1px 8px rgba(0,0,0,0.06);
+    animation: popIn 0.6s ease-out backwards;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.2s; }
+.product-card:nth-child(3) { animation-delay: 0.3s; }
+.product-card:nth-child(4) { animation-delay: 0.4s; }
+.product-card:nth-child(5) { animation-delay: 0.5s; }
+.product-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    transform: translateY(-20px) rotate(2deg);
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.15),
+        0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* 
-===============================================
-IMÁGENES DE PRODUCTO
-===============================================
-Aquí es donde se muestran tus fotos
-*/
+/* Badge con gradiente */
+.product-card::before {
+    content: '🔥 Popular';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: var(--gradient-2);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+    opacity: 0;
+    transform: translateY(-10px) rotate(-5deg);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+}
+
+/* ===============================================
+   IMÁGENES CON OVERLAY COLORIDO
+   =============================================== */
 .product-image {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     display: block;
+    border-radius: 30px 30px 0 0;
+    transition: all 0.5s ease;
+    position: relative;
 }
 
-/* Imagen por defecto si no hay foto */
-.product-card img[src*=".jpg"]:not([src]) {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+.product-card:hover .product-image {
+    transform: scale(1.05);
+    filter: brightness(1.1) saturate(1.2);
 }
 
+/* ===============================================
+   INFORMACIÓN CON DISEÑO COLORIDO
+   =============================================== */
 .product-info {
-    padding: 1.5rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 0 0 30px 30px;
 }
 
 .product-info h3 {
-    color: #333;
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+    font-family: 'Fredoka', sans-serif;
+    color: var(--color-oscuro);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-info h3 {
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateX(5px);
 }
 
 .product-info p {
-    color: #666;
-    margin-bottom: 1rem;
+    color: #636e72;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .product-price {
-    color: var(--color-principal);
-    font-size: 1.4rem;
-    font-weight: bold;
+    display: inline-block;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Fredoka', sans-serif;
+    position: relative;
 }
 
-/* 
-===============================================
-BOTÓN DE WHATSAPP FLOTANTE
-===============================================
-*/
+/* Decoración del precio */
+.product-price::before {
+    content: '💰';
+    position: absolute;
+    left: -30px;
+    font-size: 1.5rem;
+    animation: wiggle 1s ease infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+}
+
+/* ===============================================
+   WHATSAPP BUTTON CON EFECTO ESPECIAL
+   =============================================== */
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     bottom: 40px;
     right: 40px;
-    background-color: var(--color-whatsapp);
+    background: var(--gradient-3);
     color: #FFF;
-    border-radius: 50px;
+    border-radius: 50%;
     text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    font-size: 35px;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
     z-index: 1000;
-    transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     text-decoration: none;
+    transition: all 0.3s ease;
+    animation: floatY 3s ease-in-out infinite;
+}
+
+@keyframes floatY {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 15px 50px rgba(37, 211, 102, 0.6);
 }
 
-/* 
-===============================================
-SECCIÓN DE CONTACTO
-===============================================
-*/
+/* Círculos pulsantes */
+.whatsapp-float::before,
+.whatsapp-float::after {
+    content: '';
+    position: absolute;
+    border: 2px solid rgba(37, 211, 102, 0.5);
+    border-radius: 50%;
+    animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.whatsapp-float::before {
+    width: 100%;
+    height: 100%;
+}
+
+.whatsapp-float::after {
+    width: 100%;
+    height: 100%;
+    animation-delay: 0.75s;
+}
+
+@keyframes pulse-ring {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    100% {
+        width: 150%;
+        height: 150%;
+        opacity: 0;
+    }
+}
+
+/* ===============================================
+   SECCIÓN DE CONTACTO VIBRANTE
+   =============================================== */
 .contact-section {
-    background: linear-gradient(135deg, var(--color-principal) 0%, var(--color-secundario) 100%);
+    background: var(--gradient-2);
     color: white;
-    padding: 3rem 1rem;
+    padding: 6rem 2rem;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 6rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px 50px 0 0;
+}
+
+/* Círculos decorativos */
+.contact-section::before,
+.contact-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+
+.contact-section::before {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    left: -200px;
+}
+
+.contact-section::after {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: -150px;
 }
 
 .contact-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 .contact-section p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
 }
 
 .contact-btn {
     display: inline-block;
-    background-color: var(--color-whatsapp);
-    color: white;
-    padding: 1rem 2rem;
+    background: white;
+    color: var(--color-secundario);
+    padding: 1.3rem 3.5rem;
     border-radius: 50px;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    font-family: 'Fredoka', sans-serif;
 }
 
 .contact-btn:hover {
-    background-color: #1fa855;
-    transform: scale(1.05);
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    background: var(--color-acento);
 }
 
-/* 
-===============================================
-FOOTER (PIE DE PÁGINA)
-===============================================
-*/
+/* ===============================================
+   FOOTER DIVERTIDO
+   =============================================== */
 footer {
-    background-color: #333;
+    background: #2d3436;
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
-    margin-top: 3rem;
+    padding: 3rem 1rem;
+    position: relative;
 }
 
-/* 
-===============================================
-RESPONSIVE (MÓVILES Y TABLETS)
-===============================================
-*/
+footer p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* ===============================================
+   RESPONSIVE
+   =============================================== */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
     }
 
     header p {
-        font-size: 1rem;
-    }
-
-    nav ul {
-        gap: 1rem;
+        font-size: 1.1rem;
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
     }
 
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 25px;
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .contact-section h2 {
+        font-size: 2.5rem;
     }
 }
