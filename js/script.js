@@ -18,6 +18,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
   }, 800);
+  initCounterObserver();
   initReviews();
   initCounter();
 });
@@ -203,12 +204,20 @@ function sendOrder(tipo){
 }
 
 // ══ CONTADOR DE PEDIDOS (Firebase) ══
+let pedidosValue = null;
+let resenasValue = null;
+
 function initCounter(){
   const counterRef = db.ref('contador_pedidos');
   counterRef.on('value', snap => {
-    const val = snap.val() || 200;
+    pedidosValue = snap.val() || 200;
+    // Solo animar si el elemento ya es visible
     const el = document.getElementById('stat-pedidos');
-    if(el) animateCounter(el, val);
+    if(el && el.dataset.animated === 'true'){
+      animateCounter(el, pedidosValue);
+    } else if(el) {
+      el.textContent = '0+';
+    }
   });
 }
 
@@ -218,18 +227,41 @@ function incrementCounter(){
 }
 
 function animateCounter(el, target){
-  // Siempre arranca desde 0
-  let start = 0;
+  if(el.dataset.running === 'true') return;
+  el.dataset.running = 'true';
   const duration = 2000;
   const startTime = performance.now();
   function update(now){
     const progress = Math.min((now - startTime) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(start + (target - start) * eased) + '+';
+    el.textContent = Math.floor(target * eased) + '+';
     if(progress < 1) requestAnimationFrame(update);
     else el.textContent = target + '+';
   }
   requestAnimationFrame(update);
+}
+
+// Observar cuando los contadores entran en pantalla
+function initCounterObserver(){
+  const statPedidos = document.getElementById('stat-pedidos');
+  const statResenas = document.getElementById('stat-resenas');
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      e.target.dataset.animated = 'true';
+      if(e.target.id === 'stat-pedidos' && pedidosValue !== null){
+        animateCounter(e.target, pedidosValue);
+      }
+      if(e.target.id === 'stat-resenas' && resenasValue !== null){
+        animateCounter(e.target, resenasValue);
+      }
+      obs.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+
+  if(statPedidos){ statPedidos.textContent = '0+'; obs.observe(statPedidos); }
+  if(statResenas){ statResenas.textContent = '0+'; obs.observe(statResenas); }
 }
 
 // ══ TÍTULO DINÁMICO DE PESTAÑA ══
@@ -301,8 +333,13 @@ function renderReviews(reviews){
 }
 
 function updateReviewCount(count){
+  resenasValue = count;
   const el = document.getElementById('stat-resenas');
-  if(el) animateCounter(el, count);
+  if(el && el.dataset.animated === 'true'){
+    animateCounter(el, count);
+  } else if(el){
+    el.textContent = '0+';
+  }
 }
 
 function submitReview(){
