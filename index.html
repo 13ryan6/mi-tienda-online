@@ -1,191 +1,380 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda de Manualidades</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nio de Flores Eternas — Arreglos florales hechos a mano, flores eternas y cartas digitales personalizadas en Quito, Ecuador.">
+  <meta name="keywords" content="flores eternas, arreglos florales, regalos personalizados, Quito, Ecuador, carta digital">
+  <meta property="og:title" content="Nio de Flores Eternas 🌸">
+  <meta property="og:description" content="Flores eternas, arreglos y cartas digitales personalizadas. Quito, Ecuador.">
+  <title>Nio de Flores Eternas 🌸 | Quito, Ecuador</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <h1>🌸 IDEAS CREATIVAS 🌸</h1>
-        <p>Manualidades únicas, arreglos florales y regalos personalizados</p>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#manualidades">Manualidades</a></li>
-            <li><a href="#flores">Arreglos Florales</a></li>
-            <li><a href="#regalos">Regalos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+<!-- ══ LOADER ══ -->
+<div id="loader">
+  <div class="loader-flower">🌸</div>
+</div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- 
-        ========================================
-        SECCIÓN MANUALIDADES
-        ========================================
-        PARA AGREGAR MÁS PRODUCTOS:
-        1. Copia todo el bloque <div class="product-card">...</div>
-        2. Pega debajo del último producto
-        3. Cambia la imagen, título, descripción y precio
-        ========================================
-        -->
-        <section id="manualidades">
-            <h2 class="section-title">Manualidades Personalizadas</h2>
-            <div class="product-grid">
-                
-                <!-- PRODUCTO 1 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <!-- Reemplaza 'producto1.jpg' con el nombre de tu foto -->
-                    <img src="images/manualidades/producto1.jpg" alt="Cuadros Decorativos" class="product-image">
-                    <div class="product-info">
-                        <h3>Cuadros Decorativos</h3>
-                        <p>Diseños únicos hechos a mano para decorar tu hogar</p>
-                        <div class="product-price">Desde $15</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 2 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/manualidades/producto2.jpg" alt="Tejidos Artesanales" class="product-image">
-                    <div class="product-info">
-                        <h3>Tejidos Artesanales</h3>
-                        <p>Productos tejidos con amor y dedicación</p>
-                        <div class="product-price">Desde $20</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 3 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/manualidades/producto3.jpg" alt="Decoraciones Temáticas" class="product-image">
-                    <div class="product-info">
-                        <h3>Decoraciones Temáticas</h3>
-                        <p>Perfectas para cualquier ocasión especial</p>
-                        <div class="product-price">Desde $25</div>
-                    </div>
-                </div>
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo">Nio <span>de Flores Eternas</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio" class="nav-link">Inicio</a></li>
+      <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
+      <li><a href="#productos" class="nav-link">Productos</a></li>
+      <li><a href="#carta-digital" class="nav-link">Carta Digital ✨</a></li>
+      <li><a href="#contacto" class="nav-link nav-cta">Hacer pedido</a></li>
+    </ul>
+  </div>
+</nav>
 
-            </div>
-        </section>
+<!-- ══ HERO ══ -->
+<section id="inicio" class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal">Quito, Ecuador · Hecho a mano con amor</p>
+    <h1 class="hero-title reveal">Flores que duran<br><em>para siempre</em></h1>
+    <p class="hero-sub reveal">Arreglos de flores eternas, ramos personalizados<br>y cartas digitales animadas para regalar.</p>
+    <div class="hero-btns reveal">
+      <a href="#productos" class="btn-primary">Ver catálogo</a>
+      <a href="https://wa.me/593999999999?text=Hola!%20Me%20interesa%20un%20arreglo%20de%20flores%20eternas%20🌸" class="btn-secondary" target="_blank">💬 WhatsApp</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat"><span class="stat-n">200+</span><span class="stat-l">Pedidos entregados</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Hechas a mano</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Duran para siempre</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span></span>
+  </div>
+</section>
 
-        <!-- 
-        ========================================
-        SECCIÓN ARREGLOS FLORALES
-        ========================================
-        -->
-        <section id="flores">
-            <h2 class="section-title">Arreglos Florales</h2>
-            <div class="product-grid">
-                
-                <!-- PRODUCTO 1 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/flores/producto1.jpg" alt="Ramos Románticos" class="product-image">
-                    <div class="product-info">
-                        <h3>Ramos Románticos</h3>
-                        <p>Perfectos para expresar tu amor</p>
-                        <div class="product-price">Desde $30</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 2 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/flores/producto2.jpg" alt="Arreglos Corporativos" class="product-image">
-                    <div class="product-info">
-                        <h3>Arreglos Corporativos</h3>
-                        <p>Elegancia para tu oficina o evento</p>
-                        <div class="product-price">Desde $40</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 3 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/flores/producto3.jpg" alt="Centros de Mesa" class="product-image">
-                    <div class="product-info">
-                        <h3>Centros de Mesa</h3>
-                        <p>Diseños exclusivos para tu celebración</p>
-                        <div class="product-price">Desde $35</div>
-                    </div>
-                </div>
+<!-- ══ CÓMO FUNCIONA ══ -->
+<section id="como-funciona" class="how-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Simple y fácil</p>
+      <h2>¿Cómo funciona?</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-icon">🌸</div>
+        <div class="step-num">01</div>
+        <h3>Elige tu arreglo</h3>
+        <p>Explora nuestro catálogo y escoge el arreglo que más te guste. Puedes personalizarlo a tu gusto.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step reveal">
+        <div class="step-icon">✂️</div>
+        <div class="step-num">02</div>
+        <h3>Lo personalizamos</h3>
+        <p>Creamos tu arreglo a mano con los colores y detalles que elijas. Añade una carta digital personalizada.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step reveal">
+        <div class="step-icon">🎁</div>
+        <div class="step-num">03</div>
+        <h3>Te lo entregamos</h3>
+        <p>Coordinamos la entrega en Quito o el envío. También puedes compartir la carta digital por WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            </div>
-        </section>
-
-        <!-- 
-        ========================================
-        SECCIÓN REGALOS
-        ========================================
-        -->
-        <section id="regalos">
-            <h2 class="section-title">Regalos Personalizados</h2>
-            <div class="product-grid">
-                
-                <!-- PRODUCTO 1 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/regalos/producto1.jpg" alt="Cajas de Regalo" class="product-image">
-                    <div class="product-info">
-                        <h3>Cajas de Regalo</h3>
-                        <p>Sorprende con detalles únicos y personalizados</p>
-                        <div class="product-price">Desde $25</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 2 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/regalos/producto2.jpg" alt="Sets de Cumpleaños" class="product-image">
-                    <div class="product-info">
-                        <h3>Sets de Cumpleaños</h3>
-                        <p>Todo lo necesario para una celebración perfecta</p>
-                        <div class="product-price">Desde $45</div>
-                    </div>
-                </div>
-                
-                <!-- PRODUCTO 3 - CAMBIA AQUÍ -->
-                <div class="product-card">
-                    <img src="images/regalos/producto3.jpg" alt="Regalos de Aniversario" class="product-image">
-                    <div class="product-info">
-                        <h3>Regalos de Aniversario</h3>
-                        <p>Detalles especiales para momentos inolvidables</p>
-                        <div class="product-price">Desde $35</div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+<!-- ══ PRODUCTOS ══ -->
+<section id="productos" class="products-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Nuestros productos</p>
+      <h2>Catálogo</h2>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact-section">
-        <div class="container">
-            <h2>¿Te gustó algo?</h2>
-            <p>Contáctanos por WhatsApp y cuéntanos qué necesitas</p>
-            <!-- CAMBIA ESTE NÚMERO DE WHATSAPP -->
-            <a href="https://wa.me/593999999999?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos" class="contact-btn">
-                💬 Chatear por WhatsApp
-            </a>
+    <!-- Filtros -->
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="flores">🌸 Flores Eternas</button>
+      <button class="filter-btn" data-filter="ramos">💐 Ramos</button>
+      <button class="filter-btn" data-filter="eventos">✨ Eventos</button>
+      <button class="filter-btn" data-filter="combos">🎁 Combos</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <!-- FLORES ETERNAS -->
+      <div class="product-card reveal" data-cat="flores">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">🌸</div>
+          <div class="product-badges"><span class="badge hot">🔥 Más vendido</span></div>
+          <button class="product-quick" onclick="orderProduct('Flor Eterna Suelta')">Pedir ahora</button>
         </div>
-    </section>
+        <div class="product-info">
+          <h3>Flor Eterna Suelta</h3>
+          <p>Flor de papel coreano hecha a mano, dura para siempre. Elige tu color.</p>
+          <div class="product-footer">
+            <div class="price">$1.69</div>
+            <button class="add-cart" onclick="addToCart('Flor Eterna Suelta', 1.69)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Ideas Creativas. Hecho con ❤️ en Ecuador</p>
-        <p>Todos nuestros productos son hechos a mano con amor y dedicación</p>
-    </footer>
+      <div class="product-card reveal" data-cat="ramos">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#e91e8c22)">💐</div>
+          <div class="product-badges"><span class="badge new">✨ Nuevo</span></div>
+          <button class="product-quick" onclick="orderProduct('Docena de Flores Eternas')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>Docena de Flores</h3>
+          <p>12 flores eternas de papel coreano. El regalo perfecto para cualquier ocasión.</p>
+          <div class="product-footer">
+            <div class="price">$20.28 <span class="price-old">$25.00</span></div>
+            <button class="add-cart" onclick="addToCart('Docena de Flores Eternas', 20.28)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
 
-    <!-- WhatsApp Floating Button -->
-    <!-- CAMBIA ESTE NÚMERO DE WHATSAPP TAMBIÉN -->
-    <a href="https://wa.me/593999999999?text=Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos" 
-       class="whatsapp-float" 
-       target="_blank"
-       title="Contáctanos por WhatsApp">
-        💬
-    </a>
+      <div class="product-card reveal" data-cat="ramos">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)">🌷</div>
+          <div class="product-badges"><span class="badge hot">🔥 Más vendido</span></div>
+          <button class="product-quick" onclick="orderProduct('Ramo de 24 Flores')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>Ramo de 24 Flores</h3>
+          <p>Ramo completo de 24 flores eternas. Ideal para cumpleaños, aniversarios y regalos especiales.</p>
+          <div class="product-footer">
+            <div class="price">$40.56</div>
+            <button class="add-cart" onclick="addToCart('Ramo de 24 Flores', 40.56)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
 
-    <script src="js/script.js"></script>
+      <div class="product-card reveal" data-cat="eventos">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fff8e1,#ffcc02)">🌻</div>
+          <div class="product-badges"><span class="badge promo">⭐ Premium</span></div>
+          <button class="product-quick" onclick="orderProduct('Arreglo para Evento 36 Flores')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>Arreglo Eventos (36 flores)</h3>
+          <p>Centro de mesa o arreglo para bodas, grados, baby showers. 36 flores eternas premium.</p>
+          <div class="product-footer">
+            <div class="price">$60.84</div>
+            <button class="add-cart" onclick="addToCart('Arreglo Evento 36 Flores', 60.84)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-cat="combos">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">🎁</div>
+          <div class="product-badges"><span class="badge new">💌 Incluye carta</span></div>
+          <button class="product-quick" onclick="orderProduct('Combo Ramo + Carta Digital')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>Combo Ramo + Carta Digital</h3>
+          <p>Ramo de 24 flores eternas más una carta digital animada y personalizada para compartir por WhatsApp.</p>
+          <div class="product-footer">
+            <div class="price">$48.56 <span class="price-old">$54.56</span></div>
+            <button class="add-cart" onclick="addToCart('Combo Ramo + Carta Digital', 48.56)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-cat="flores">
+        <div class="product-img-wrap">
+          <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#ff80ab)">🌹</div>
+          <div class="product-badges"><span class="badge promo">🎀 Personalizado</span></div>
+          <button class="product-quick" onclick="orderProduct('Arreglo Personalizado')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>Arreglo Personalizado</h3>
+          <p>Diseñamos el arreglo según tus colores, estilo y ocasión. ¡Cuéntanos qué necesitas!</p>
+          <div class="product-footer">
+            <div class="price">Desde $20.28</div>
+            <button class="add-cart" onclick="addToCart('Arreglo Personalizado', 20.28)">+ Agregar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CARRITO ══ -->
+<div id="cartBar" class="cart-bar hidden">
+  <div class="cart-bar-inner">
+    <span class="cart-icon">🛒</span>
+    <span id="cartSummary">0 productos</span>
+    <button class="cart-checkout" id="cartCheckout">Pedir por WhatsApp →</button>
+    <button class="cart-clear" id="cartClear">✕</button>
+  </div>
+</div>
+
+<!-- ══ CARTA DIGITAL ══ -->
+<section id="carta-digital" class="carta-section">
+  <div class="container">
+    <div class="carta-grid">
+      <div class="carta-text reveal">
+        <p class="eyebrow" style="color:#d4a843">Exclusivo · Solo en Nio</p>
+        <h2>Carta Digital<br>Personalizada 💌</h2>
+        <p class="carta-desc">El detalle que ninguna otra florería ofrece. Una carta animada con el nombre y mensaje de tu elección, que se comparte por WhatsApp como un link. Ella la abre y un sobre se abre mágicamente con tu mensaje.</p>
+        <div class="carta-planes">
+          <div class="carta-plan">
+            <div class="plan-icon">🌸</div>
+            <div class="plan-info">
+              <strong>Básico</strong>
+              <span>Nombre + mensaje prediseñado</span>
+            </div>
+            <div class="plan-price">+$3</div>
+          </div>
+          <div class="carta-plan featured">
+            <div class="plan-icon">💌</div>
+            <div class="plan-info">
+              <strong>Personalizado ⭐</strong>
+              <span>Nombre + tu mensaje propio</span>
+            </div>
+            <div class="plan-price">+$6</div>
+          </div>
+          <div class="carta-plan">
+            <div class="plan-icon">✨</div>
+            <div class="plan-info">
+              <strong>Premium</strong>
+              <span>Nombre + mensaje + foto del arreglo</span>
+            </div>
+            <div class="plan-price">+$10</div>
+          </div>
+        </div>
+        <a href="https://wa.me/593999999999?text=Hola!%20Quiero%20una%20carta%20digital%20personalizada%20💌" class="btn-primary" target="_blank">Quiero una carta digital</a>
+      </div>
+      <div class="carta-demo reveal">
+        <div class="demo-phone">
+          <div class="demo-screen">
+            <div class="demo-envelope" id="demoEnv" onclick="playDemo()">
+              <div class="demo-env-body">
+                <div class="demo-env-flap" id="demoFlap"></div>
+                <div class="demo-env-card" id="demoCard">
+                  <div class="demo-card-peek"></div>
+                </div>
+                <div class="demo-env-seal" id="demoSeal">💌</div>
+              </div>
+              <p class="demo-label">Toca para ver la magia ✨</p>
+            </div>
+            <div class="demo-message hidden" id="demoMsg">
+              <div class="demo-msg-inner">
+                <p class="demo-msg-eyebrow">Con todo mi amor</p>
+                <h4 class="demo-msg-title">Para ti, amor mío 🌸</h4>
+                <p class="demo-msg-body">Porque cada día contigo<br>es el más bonito de mi vida.<br><em>Te amo infinito.</em></p>
+                <p class="demo-msg-sign">Tu persona favorita 💕</p>
+              </div>
+              <button class="demo-replay" onclick="resetDemo()">↩ Ver de nuevo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIOS ══ -->
+<section class="testimonios-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Lo que dicen nuestros clientes</p>
+      <h2>Testimonios</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio reveal">
+        <div class="test-stars">★★★★★</div>
+        <p>"Las flores son increíbles, parecen reales pero duran para siempre. Mi mamá lloró de la emoción. 100% recomendado."</p>
+        <div class="test-author"><div class="test-avatar">S</div><strong>Sofía M.</strong></div>
+      </div>
+      <div class="testimonio reveal">
+        <div class="test-stars">★★★★★</div>
+        <p>"La carta digital fue lo mejor. Mi novio la abrió y no podía creer lo bonita que era. Voy a pedir siempre el combo."</p>
+        <div class="test-author"><div class="test-avatar">V</div><strong>Valentina R.</strong></div>
+      </div>
+      <div class="testimonio reveal">
+        <div class="test-stars">★★★★★</div>
+        <p>"Pedí 36 flores para el evento de mi empresa y quedaron perfectas. Todos preguntaban dónde las conseguí."</p>
+        <div class="test-author"><div class="test-avatar">C</div><strong>Carlos A.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto" class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p class="eyebrow" style="color:#d4a843">Estamos aquí para ti</p>
+        <h2>¿Lista para<br>hacer tu pedido?</h2>
+        <p>Escríbenos por WhatsApp y te ayudamos a elegir el arreglo perfecto. Respondemos en minutos.</p>
+        <div class="contact-info">
+          <div class="contact-item">📍 Quito, Ecuador</div>
+          <div class="contact-item">⏰ Lunes a Sábado · 9am – 7pm</div>
+          <div class="contact-item">🚚 Envíos a todo Quito</div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <h3>¿Qué necesitas?</h3>
+        <div class="order-options">
+          <button class="order-opt" onclick="sendOrder('un arreglo de flores eternas')">🌸 Flores Eternas</button>
+          <button class="order-opt" onclick="sendOrder('un ramo personalizado')">💐 Ramo Personalizado</button>
+          <button class="order-opt" onclick="sendOrder('flores para un evento')">✨ Flores para Evento</button>
+          <button class="order-opt" onclick="sendOrder('una carta digital personalizada')">💌 Carta Digital</button>
+          <button class="order-opt" onclick="sendOrder('el combo ramo + carta digital')">🎁 Combo Ramo + Carta</button>
+          <button class="order-opt" onclick="sendOrder('información de precios y disponibilidad')">💬 Solo consultar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-logo">Nio <span>de Flores Eternas</span></p>
+        <p>Flores eternas hechas a mano con amor en Quito, Ecuador. Regalos que duran para siempre.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Productos</strong>
+        <a href="#productos">Flores Eternas</a>
+        <a href="#productos">Ramos</a>
+        <a href="#productos">Arreglos para Eventos</a>
+        <a href="#carta-digital">Carta Digital</a>
+      </div>
+      <div class="footer-links">
+        <strong>Contacto</strong>
+        <a href="https://wa.me/593999999999" target="_blank">WhatsApp</a>
+        <a href="#como-funciona">¿Cómo funciona?</a>
+        <a href="#contacto">Hacer pedido</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Nio de Flores Eternas · Hecho con 🌸 en Ecuador</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ WHATSAPP FLOTANTE ══ -->
+<a href="https://wa.me/593999999999?text=Hola!%20Me%20interesa%20un%20arreglo%20de%20flores%20eternas%20🌸" class="whatsapp-float" target="_blank" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="js/script.js"></script>
 </body>
 </html>
