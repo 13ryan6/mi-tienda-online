@@ -30,8 +30,8 @@ window.addEventListener('load', () => {
   let W, H, stars = [], petals = [], t = 0;
 
   function resize(){
-    W = cv.width = cv.offsetWidth;
-    H = cv.height = cv.offsetHeight;
+    W = cv.width = window.innerWidth;
+    H = cv.height = window.innerHeight;
   }
 
   function initStars(){
@@ -97,8 +97,7 @@ window.addEventListener('load', () => {
     requestAnimationFrame(frame);
   }
 
-  const ro = new ResizeObserver(()=>{ resize(); initStars(); });
-  ro.observe(cv);
+  window.addEventListener('resize', ()=>{ resize(); initStars(); });
   resize(); initStars(); initPetals(); frame();
 })();
 
