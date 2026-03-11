@@ -184,7 +184,7 @@ document.getElementById('cartCheckout').addEventListener('click', ()=>{
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2);
   const msg = encodeURIComponent(`Hola! Quiero hacer el siguiente pedido 🌸\n\n${items}\n\nTotal: $${total}\n\n¿Pueden confirmarme disponibilidad?`);
   incrementCounter();
-  window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
+  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
 });
 
 document.getElementById('cartClear').addEventListener('click', ()=>{
@@ -194,13 +194,13 @@ document.getElementById('cartClear').addEventListener('click', ()=>{
 function orderProduct(name){
   const msg = encodeURIComponent(`Hola! Me interesa pedir: ${name} 🌸 ¿Pueden darme más información y disponibilidad?`);
   incrementCounter();
-  window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
+  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
 }
 
 function sendOrder(tipo){
   const msg = encodeURIComponent(`Hola! Estoy interesada/o en ${tipo} 🌸 ¿Me pueden dar más información?`);
   incrementCounter();
-  window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
+  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
 }
 
 // ══ CONTADOR DE PEDIDOS (Firebase) ══
