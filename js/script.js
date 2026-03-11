@@ -343,7 +343,10 @@ function updateReviewCount(count){
 
 function submitReview(){
   const name    = document.getElementById('reviewName').value.trim();
-  const stars   = parseInt(document.querySelector('.star-btn.active')?.dataset.stars || 0);
+  const activeBtns = document.querySelectorAll('.star-btn.active');
+  const stars = activeBtns.length > 0
+    ? Math.max(...[...activeBtns].map(b => parseInt(b.dataset.stars)))
+    : 0;
   const message = document.getElementById('reviewMessage').value.trim();
   const btn     = document.getElementById('submitReview');
 
