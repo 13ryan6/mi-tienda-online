@@ -210,20 +210,19 @@ let resenasValue = null;
 function initCounter(){
   const counterRef = db.ref('contador_pedidos');
   counterRef.on('value', snap => {
-    pedidosValue = snap.val() || 200;
-    // Solo animar si el elemento ya es visible
+    pedidosValue = snap.val() || 0;
     const el = document.getElementById('stat-pedidos');
     if(el && el.dataset.animated === 'true'){
       animateCounter(el, pedidosValue);
     } else if(el) {
-      el.textContent = '0+';
+      el.textContent = pedidosValue + '+';
     }
   });
 }
 
 function incrementCounter(){
   const counterRef = db.ref('contador_pedidos');
-  counterRef.transaction(current => (current || 200) + 1);
+  counterRef.transaction(current => (current || 0) + 1);
 }
 
 function animateCounter(el, target){
@@ -384,25 +383,23 @@ function showReviewError(msg){
 }
 
 // Estrellas interactivas
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.star-btn').forEach(btn => {
+function initStarSelector(){
+  const btns = document.querySelectorAll('.star-btn');
+  if(!btns.length) return;
+  btns.forEach(btn => {
     btn.addEventListener('mouseenter', () => {
       const val = parseInt(btn.dataset.stars);
-      document.querySelectorAll('.star-btn').forEach(b => {
-        b.classList.toggle('hover', parseInt(b.dataset.stars) <= val);
-      });
+      btns.forEach(b => b.classList.toggle('hover', parseInt(b.dataset.stars) <= val));
     });
     btn.addEventListener('mouseleave', () => {
-      document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('hover'));
+      btns.forEach(b => b.classList.remove('hover'));
     });
     btn.addEventListener('click', () => {
       const val = parseInt(btn.dataset.stars);
-      document.querySelectorAll('.star-btn').forEach(b => {
-        b.classList.toggle('active', parseInt(b.dataset.stars) <= val);
-      });
+      btns.forEach(b => b.classList.toggle('active', parseInt(b.dataset.stars) <= val));
     });
   });
-});
+}
 
 function escapeHtml(str){
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -522,241 +519,78 @@ function goToSlide(gallery, index) {
   if (dots[index]) dots[index].classList.add('active');
 }
 
-document.addEventListener('DOMContentLoaded', initGalleries);
-
-// ══ LIGHTBOX ══
-(function(){
-  // Crear el lightbox en el DOM
-  const lb = document.createElement('div');
-  lb.className = 'lightbox';
-  lb.id = 'lightbox';
-  lb.innerHTML = `
-    <button class="lightbox-close" id="lbClose">✕</button>
-    <button class="lightbox-prev" id="lbPrev">‹</button>
-    <img class="lightbox-img" id="lbImg" src="" alt="">
-    <button class="lightbox-next" id="lbNext">›</button>
-    <div class="lightbox-counter" id="lbCounter"></div>
-  `;
-  document.body.appendChild(lb);
-
-  let currentImgs = [];
-  let currentIdx = 0;
-
-  function openLightbox(imgs, idx){
-    currentImgs = imgs;
-    currentIdx = idx;
-    showSlide(currentIdx);
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox(){
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showSlide(idx){
-    currentIdx = (idx + currentImgs.length) % currentImgs.length;
-    document.getElementById('lbImg').src = currentImgs[currentIdx];
-    document.getElementById('lbCounter').textContent =
-      currentImgs.length > 1 ? `${currentIdx + 1} / ${currentImgs.length}` : '';
-  }
-
-  // Click en imagen abre lightbox
-  document.addEventListener('click', e => {
-    if(e.target.classList.contains('gallery-img')){
-      const gallery = e.target.closest('.gallery');
-      const imgs = [...gallery.querySelectorAll('.gallery-img')].map(i => i.src);
-      const idx = [...gallery.querySelectorAll('.gallery-img')].indexOf(e.target);
-      // Abrir en la foto activa visible, no necesariamente la clickeada
-      const activeIdx = [...gallery.querySelectorAll('.gallery-img')].findIndex(i => i.classList.contains('active'));
-      openLightbox(imgs, activeIdx >= 0 ? activeIdx : idx);
-    }
-  });
-
-  // Controles
-  document.getElementById('lbClose').onclick = closeLightbox;
-  document.getElementById('lbPrev').onclick = (e) => { e.stopPropagation(); showSlide(currentIdx - 1); };
-  document.getElementById('lbNext').onclick = (e) => { e.stopPropagation(); showSlide(currentIdx + 1); };
-
-  // Click fuera cierra
-  lb.addEventListener('click', e => { if(e.target === lb) closeLightbox(); });
-
-  // Teclado
-  document.addEventListener('keydown', e => {
-    if(!lb.classList.contains('open')) return;
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowLeft') showSlide(currentIdx - 1);
-    if(e.key === 'ArrowRight') showSlide(currentIdx + 1);
-  });
-
-  // Swipe en móvil
-  let touchStartX = 0;
-  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
-  lb.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 50) showSlide(diff > 0 ? currentIdx + 1 : currentIdx - 1);
-  });
-})();
-
-// ══ LIGHTBOX ══
-(function(){
-  // Crear el lightbox en el DOM
-  const lb = document.createElement('div');
-  lb.className = 'lightbox';
-  lb.id = 'lightbox';
-  lb.innerHTML = `
-    <button class="lightbox-close" id="lbClose">✕</button>
-    <button class="lightbox-prev" id="lbPrev">‹</button>
-    <img class="lightbox-img" id="lbImg" src="" alt="">
-    <button class="lightbox-next" id="lbNext">›</button>
-    <div class="lightbox-counter" id="lbCounter"></div>
-  `;
-  document.body.appendChild(lb);
-
-  let currentImages = [];
-  let currentIndex = 0;
-
-  function openLightbox(imgs, index) {
-    currentImages = imgs;
-    currentIndex = index;
-    showImage();
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function showImage() {
-    const img = document.getElementById('lbImg');
-    img.style.transform = 'scale(.88)';
-    setTimeout(() => { img.style.transform = ''; }, 10);
-    img.src = currentImages[currentIndex];
-    img.alt = `Foto ${currentIndex + 1}`;
-    document.getElementById('lbCounter').textContent =
-      currentImages.length > 1 ? `${currentIndex + 1} / ${currentImages.length}` : '';
-    // Mostrar/ocultar flechas
-    document.getElementById('lbPrev').style.display = currentImages.length > 1 ? '' : 'none';
-    document.getElementById('lbNext').style.display = currentImages.length > 1 ? '' : 'none';
-  }
-
-  function prev() {
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    showImage();
-  }
-
-  function next() {
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    showImage();
-  }
-
-  // Eventos
-  document.getElementById('lbClose').addEventListener('click', closeLightbox);
-  document.getElementById('lbPrev').addEventListener('click', prev);
-  document.getElementById('lbNext').addEventListener('click', next);
-
-  // Click fuera de la imagen cierra
-  lb.addEventListener('click', e => { if(e.target === lb) closeLightbox(); });
-
-  // Teclado
-  document.addEventListener('keydown', e => {
-    if(!lb.classList.contains('open')) return;
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowLeft') prev();
-    if(e.key === 'ArrowRight') next();
-  });
-
-  // Swipe en móvil
-  let touchStartX = 0;
-  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
-  lb.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 50) diff > 0 ? next() : prev();
-  });
-
-  // Conectar con las galerías — click en cualquier imagen la abre
-  function attachLightboxToGalleries() {
-    document.querySelectorAll('.gallery').forEach(gallery => {
-      const imgs = [...gallery.querySelectorAll('.gallery-img')];
-      const srcs = imgs.map(i => i.src);
-      imgs.forEach((img, i) => {
-        img.addEventListener('click', () => openLightbox(srcs, i));
-      });
-    });
-  }
-
-  // Esperar que el DOM esté listo
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', attachLightboxToGalleries);
-  } else {
-    attachLightboxToGalleries();
-  }
-})();
+document.addEventListener('DOMContentLoaded', () => {
+  initGalleries();
+  initLightbox();
+  initStarSelector();
+});
 
 // ══ LIGHTBOX ══
 let lbImages = [];
-let lbIndex = 0;
+let lbIndex  = 0;
 
 function initLightbox() {
-  // Al hacer click en cualquier foto de galería, abrir lightbox
+  // Click en cualquier foto abre el lightbox
   document.querySelectorAll('.gallery').forEach(gallery => {
-    gallery.querySelectorAll('.gallery-img').forEach(img => {
+    const imgs = [...gallery.querySelectorAll('.gallery-img')];
+    imgs.forEach((img, i) => {
       img.addEventListener('click', () => {
-        // Recopilar todas las fotos de esta galería
-        const imgs = [...gallery.querySelectorAll('.gallery-img')];
-        lbImages = imgs.map(i => i.src);
-        lbIndex = imgs.indexOf(img);
-        openLightbox();
+        lbImages = imgs.map(im => im.src);
+        lbIndex  = i;
+        lbOpen();
       });
     });
   });
 
-  // Cerrar con click en fondo oscuro
-  document.getElementById('lightbox').addEventListener('click', e => {
-    if(e.target.id === 'lightbox') closeLightbox();
+  const lb = document.getElementById('lightbox');
+  if(!lb) return;
+
+  lb.addEventListener('click', e => { if(e.target === lb) lbClose(); });
+
+  document.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape')      lbClose();
+    if(e.key === 'ArrowLeft')   lbNav(-1);
+    if(e.key === 'ArrowRight')  lbNav(1);
   });
 
-  // Navegar con teclado
-  document.addEventListener('keydown', e => {
-    const lb = document.getElementById('lightbox');
-    if(!lb.classList.contains('open')) return;
-    if(e.key === 'ArrowRight') lightboxNav(1);
-    if(e.key === 'ArrowLeft') lightboxNav(-1);
-    if(e.key === 'Escape') closeLightbox();
+  // Swipe móvil
+  let tx = 0;
+  lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend',   e => {
+    const d = tx - e.changedTouches[0].clientX;
+    if(Math.abs(d) > 50) lbNav(d > 0 ? 1 : -1);
   });
 }
 
-function openLightbox() {
-  const lb = document.getElementById('lightbox');
+function lbOpen() {
+  const lb  = document.getElementById('lightbox');
   const img = document.getElementById('lightbox-img');
-  const counter = document.getElementById('lightbox-counter');
+  const cnt = document.getElementById('lightbox-counter');
+  const prev = document.getElementById('lightbox-prev');
+  const next = document.getElementById('lightbox-next');
+  if(!lb || !img) return;
   img.src = lbImages[lbIndex];
-  counter.textContent = lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
-  // Mostrar/ocultar flechas según cantidad de fotos
-  document.getElementById('lightbox-prev').style.display = lbImages.length > 1 ? '' : 'none';
-  document.getElementById('lightbox-next').style.display = lbImages.length > 1 ? '' : 'none';
+  cnt.textContent = lbImages.length > 1 ? `${lbIndex + 1} / ${lbImages.length}` : '';
+  prev.style.display = lbImages.length > 1 ? '' : 'none';
+  next.style.display = lbImages.length > 1 ? '' : 'none';
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeLightbox() {
+function lbClose() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-function lightboxNav(dir) {
+function lbNav(dir) {
   lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
   const img = document.getElementById('lightbox-img');
-  const counter = document.getElementById('lightbox-counter');
+  const cnt = document.getElementById('lightbox-counter');
   img.style.opacity = '0';
   setTimeout(() => {
     img.src = lbImages[lbIndex];
     img.style.opacity = '1';
-    counter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+    cnt.textContent = `${lbIndex + 1} / ${lbImages.length}`;
   }, 150);
 }
-
-document.addEventListener('DOMContentLoaded', initLightbox);
