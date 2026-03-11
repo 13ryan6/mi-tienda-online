@@ -406,3 +406,48 @@ window.addEventListener('scroll',()=>{
     }
   });
 });
+
+// ══ GALERÍA DE PRODUCTOS ══
+function initGalleries() {
+  document.querySelectorAll('.gallery').forEach(gallery => {
+    const imgs = gallery.querySelectorAll('.gallery-img');
+    const dotsContainer = gallery.querySelector('.gal-dots');
+    if (!dotsContainer) return;
+
+    // Crear dots
+    imgs.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'gal-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(gallery, i);
+      dotsContainer.appendChild(dot);
+    });
+
+    // Auto-slide cada 3s si hay más de 1 imagen
+    if (imgs.length > 1) {
+      setInterval(() => slideGallery(gallery.querySelector('.gal-next'), 1), 3500);
+    }
+  });
+}
+
+function slideGallery(btn, dir) {
+  const gallery = btn.closest('.gallery');
+  const imgs = gallery.querySelectorAll('.gallery-img');
+  const dots = gallery.querySelectorAll('.gal-dot');
+  let current = [...imgs].findIndex(i => i.classList.contains('active'));
+  imgs[current].classList.remove('active');
+  if (dots[current]) dots[current].classList.remove('active');
+  current = (current + dir + imgs.length) % imgs.length;
+  imgs[current].classList.add('active');
+  if (dots[current]) dots[current].classList.add('active');
+}
+
+function goToSlide(gallery, index) {
+  const imgs = gallery.querySelectorAll('.gallery-img');
+  const dots = gallery.querySelectorAll('.gal-dot');
+  imgs.forEach(i => i.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  imgs[index].classList.add('active');
+  if (dots[index]) dots[index].classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', initGalleries);

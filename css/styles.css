@@ -619,3 +619,39 @@ footer { background:#0d0608; padding:60px 0 32px; }
   border-radius:var(--radius-sm); font-size:.85rem;
 }
 .review-form .btn-primary { width:100%; text-align:center; border:none; cursor:pointer; }
+
+/* ══ GALERÍA DE PRODUCTOS ══ */
+.gallery { position:relative; width:100%; height:clamp(200px,25vw,280px); overflow:hidden; }
+.gallery-img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; opacity:0;
+  transition:opacity .4s ease, transform .5s ease;
+  transform:scale(1.03);
+}
+.gallery-img.active { opacity:1; transform:scale(1); }
+
+.gal-prev, .gal-next {
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,.35); color:white;
+  border:none; width:32px; height:32px; border-radius:50%;
+  font-size:1.2rem; cursor:pointer; z-index:5;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transition:opacity .25s, background .25s;
+  line-height:1;
+}
+.gal-prev { left:8px; }
+.gal-next { right:8px; }
+.gallery:hover .gal-prev,
+.gallery:hover .gal-next { opacity:1; }
+.gal-prev:hover, .gal-next:hover { background:rgba(200,65,90,.8); }
+
+.gal-dots {
+  position:absolute; bottom:8px; left:50%; transform:translateX(-50%);
+  display:flex; gap:5px; z-index:5;
+}
+.gal-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:rgba(255,255,255,.5); cursor:pointer;
+  transition:background .25s, transform .25s;
+}
+.gal-dot.active { background:white; transform:scale(1.3); }
