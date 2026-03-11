@@ -97,8 +97,13 @@ window.addEventListener('load', () => {
     requestAnimationFrame(frame);
   }
 
-  window.addEventListener('resize', ()=>{ resize(); initStars(); });
-  resize(); initStars(); initPetals(); frame();
+  window.addEventListener('resize', ()=>{ resize(); initStars(); initPetals(); });
+  // Esperar que el hero tenga altura real antes de inicializar
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', ()=>{ resize(); initStars(); initPetals(); frame(); });
+  } else {
+    resize(); initStars(); initPetals(); frame();
+  }
 })();
 
 // ══ NAV SCROLL ══
@@ -213,17 +218,47 @@ function incrementCounter(){
 }
 
 function animateCounter(el, target){
-  const start = parseInt(el.textContent) || 0;
-  const duration = 1200;
+  // Siempre arranca desde 0
+  let start = 0;
+  const duration = 2000;
   const startTime = performance.now();
   function update(now){
     const progress = Math.min((now - startTime) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.floor(start + (target - start) * eased) + '+';
     if(progress < 1) requestAnimationFrame(update);
+    else el.textContent = target + '+';
   }
   requestAnimationFrame(update);
 }
+
+// ══ TÍTULO DINÁMICO DE PESTAÑA ══
+(function(){
+  const original = document.title;
+  const messages = [
+    '🌸 ¡Haz tu pedido hoy!',
+    '💌 Carta digital personalizada',
+    '🎁 Regalos únicos hechos a mano',
+    '🌸 Detalles Creativos',
+  ];
+  let idx = 0;
+  let interval = null;
+
+  document.addEventListener('visibilitychange', () => {
+    if(document.hidden){
+      // Usuario cambió de tab — llamar su atención
+      interval = setInterval(() => {
+        document.title = messages[idx % messages.length];
+        idx++;
+      }, 1500);
+    } else {
+      // Volvió — restaurar título
+      clearInterval(interval);
+      document.title = original;
+      idx = 0;
+    }
+  });
+})();
 
 // ══ RESEÑAS (Firebase) ══
 function initReviews(){
@@ -267,7 +302,7 @@ function renderReviews(reviews){
 
 function updateReviewCount(count){
   const el = document.getElementById('stat-resenas');
-  if(el) el.textContent = count + '+';
+  if(el) animateCounter(el, count);
 }
 
 function submitReview(){
