@@ -10,6 +10,9 @@
   <title>Nio de Flores Eternas 🌸 | Quito, Ecuador</title>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Firebase CDN compat -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -30,6 +33,7 @@
       <li><a href="#como-funciona" class="nav-link">¿Cómo funciona?</a></li>
       <li><a href="#productos" class="nav-link">Productos</a></li>
       <li><a href="#carta-digital" class="nav-link">Carta Digital ✨</a></li>
+      <li><a href="#testimonios" class="nav-link">Reseñas</a></li>
       <li><a href="#contacto" class="nav-link nav-cta">Hacer pedido</a></li>
     </ul>
   </div>
@@ -47,16 +51,14 @@
       <a href="https://wa.me/593999999999?text=Hola!%20Me%20interesa%20un%20arreglo%20de%20flores%20eternas%20🌸" class="btn-secondary" target="_blank">💬 WhatsApp</a>
     </div>
     <div class="hero-stats reveal">
-      <div class="stat"><span class="stat-n">200+</span><span class="stat-l">Pedidos entregados</span></div>
+      <div class="stat"><span class="stat-n" id="stat-pedidos">200+</span><span class="stat-l">Pedidos realizados</span></div>
       <div class="stat-div"></div>
       <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Hechas a mano</span></div>
       <div class="stat-div"></div>
-      <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Duran para siempre</span></div>
+      <div class="stat"><span class="stat-n" id="stat-resenas">0+</span><span class="stat-l">Reseñas felices</span></div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span></span>
-  </div>
+  <div class="hero-scroll"><span></span></div>
 </section>
 
 <!-- ══ CÓMO FUNCIONA ══ -->
@@ -98,8 +100,6 @@
       <p class="eyebrow">Nuestros productos</p>
       <h2>Catálogo</h2>
     </div>
-
-    <!-- Filtros -->
     <div class="filters reveal">
       <button class="filter-btn active" data-filter="all">Todos</button>
       <button class="filter-btn" data-filter="flores">🌸 Flores Eternas</button>
@@ -107,10 +107,7 @@
       <button class="filter-btn" data-filter="eventos">✨ Eventos</button>
       <button class="filter-btn" data-filter="combos">🎁 Combos</button>
     </div>
-
     <div class="product-grid" id="productGrid">
-
-      <!-- FLORES ETERNAS -->
       <div class="product-card reveal" data-cat="flores">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">🌸</div>
@@ -126,7 +123,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-card reveal" data-cat="ramos">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#e91e8c22)">💐</div>
@@ -142,7 +138,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-card reveal" data-cat="ramos">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)">🌷</div>
@@ -158,7 +153,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-card reveal" data-cat="eventos">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fff8e1,#ffcc02)">🌻</div>
@@ -174,7 +168,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-card reveal" data-cat="combos">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#e8f5e9,#a5d6a7)">🎁</div>
@@ -190,7 +183,6 @@
           </div>
         </div>
       </div>
-
       <div class="product-card reveal" data-cat="flores">
         <div class="product-img-wrap">
           <div class="product-img-placeholder" style="background:linear-gradient(135deg,#fce4ec,#ff80ab)">🌹</div>
@@ -206,7 +198,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -228,30 +219,21 @@
       <div class="carta-text reveal">
         <p class="eyebrow" style="color:#d4a843">Exclusivo · Solo en Nio</p>
         <h2>Carta Digital<br>Personalizada 💌</h2>
-        <p class="carta-desc">El detalle que ninguna otra florería ofrece. Una carta animada con el nombre y mensaje de tu elección, que se comparte por WhatsApp como un link. Ella la abre y un sobre se abre mágicamente con tu mensaje.</p>
+        <p class="carta-desc">El detalle que ninguna otra florería ofrece. Una carta animada con el nombre y mensaje de tu elección, que se comparte por WhatsApp como un link.</p>
         <div class="carta-planes">
           <div class="carta-plan">
             <div class="plan-icon">🌸</div>
-            <div class="plan-info">
-              <strong>Básico</strong>
-              <span>Nombre + mensaje prediseñado</span>
-            </div>
+            <div class="plan-info"><strong>Básico</strong><span>Nombre + mensaje prediseñado</span></div>
             <div class="plan-price">+$3</div>
           </div>
           <div class="carta-plan featured">
             <div class="plan-icon">💌</div>
-            <div class="plan-info">
-              <strong>Personalizado ⭐</strong>
-              <span>Nombre + tu mensaje propio</span>
-            </div>
+            <div class="plan-info"><strong>Personalizado ⭐</strong><span>Nombre + tu mensaje propio</span></div>
             <div class="plan-price">+$6</div>
           </div>
           <div class="carta-plan">
             <div class="plan-icon">✨</div>
-            <div class="plan-info">
-              <strong>Premium</strong>
-              <span>Nombre + mensaje + foto del arreglo</span>
-            </div>
+            <div class="plan-info"><strong>Premium</strong><span>Nombre + mensaje + foto del arreglo</span></div>
             <div class="plan-price">+$10</div>
           </div>
         </div>
@@ -263,9 +245,7 @@
             <div class="demo-envelope" id="demoEnv" onclick="playDemo()">
               <div class="demo-env-body">
                 <div class="demo-env-flap" id="demoFlap"></div>
-                <div class="demo-env-card" id="demoCard">
-                  <div class="demo-card-peek"></div>
-                </div>
+                <div class="demo-env-card" id="demoCard"><div class="demo-card-peek"></div></div>
                 <div class="demo-env-seal" id="demoSeal">💌</div>
               </div>
               <p class="demo-label">Toca para ver la magia ✨</p>
@@ -286,28 +266,40 @@
   </div>
 </section>
 
-<!-- ══ TESTIMONIOS ══ -->
-<section class="testimonios-section">
+<!-- ══ TESTIMONIOS + FORMULARIO ══ -->
+<section id="testimonios" class="testimonios-section">
   <div class="container">
     <div class="section-header reveal">
       <p class="eyebrow">Lo que dicen nuestros clientes</p>
-      <h2>Testimonios</h2>
+      <h2>Reseñas</h2>
     </div>
-    <div class="testimonios-grid">
-      <div class="testimonio reveal">
-        <div class="test-stars">★★★★★</div>
-        <p>"Las flores son increíbles, parecen reales pero duran para siempre. Mi mamá lloró de la emoción. 100% recomendado."</p>
-        <div class="test-author"><div class="test-avatar">S</div><strong>Sofía M.</strong></div>
-      </div>
-      <div class="testimonio reveal">
-        <div class="test-stars">★★★★★</div>
-        <p>"La carta digital fue lo mejor. Mi novio la abrió y no podía creer lo bonita que era. Voy a pedir siempre el combo."</p>
-        <div class="test-author"><div class="test-avatar">V</div><strong>Valentina R.</strong></div>
-      </div>
-      <div class="testimonio reveal">
-        <div class="test-stars">★★★★★</div>
-        <p>"Pedí 36 flores para el evento de mi empresa y quedaron perfectas. Todos preguntaban dónde las conseguí."</p>
-        <div class="test-author"><div class="test-avatar">C</div><strong>Carlos A.</strong></div>
+
+    <!-- Grid de reseñas (se llena desde Firebase) -->
+    <div class="testimonios-grid" id="testimoniosGrid">
+      <div class="no-reviews">Cargando reseñas... 🌸</div>
+    </div>
+
+    <!-- Formulario para dejar reseña -->
+    <div class="review-form-wrap reveal">
+      <div class="review-form">
+        <h3>¿Ya compraste con nosotros? 🌸</h3>
+        <p>Cuéntanos tu experiencia y ayuda a otros clientes</p>
+        <div class="review-fields">
+          <input type="text" id="reviewName" placeholder="Tu nombre" maxlength="40" />
+          <div class="star-selector">
+            <span>Tu calificación:</span>
+            <div class="stars-input">
+              <button class="star-btn" data-stars="1">★</button>
+              <button class="star-btn" data-stars="2">★</button>
+              <button class="star-btn" data-stars="3">★</button>
+              <button class="star-btn" data-stars="4">★</button>
+              <button class="star-btn" data-stars="5">★</button>
+            </div>
+          </div>
+          <textarea id="reviewMessage" placeholder="¿Cómo fue tu experiencia? ¿Qué compraste?" rows="3" maxlength="300"></textarea>
+          <div id="reviewError" class="review-error" style="display:none"></div>
+          <button class="btn-primary" id="submitReview" onclick="submitReview()">Publicar reseña</button>
+        </div>
       </div>
     </div>
   </div>
@@ -361,7 +353,7 @@
         <strong>Contacto</strong>
         <a href="https://wa.me/593999999999" target="_blank">WhatsApp</a>
         <a href="#como-funciona">¿Cómo funciona?</a>
-        <a href="#contacto">Hacer pedido</a>
+        <a href="#testimonios">Reseñas</a>
       </div>
     </div>
     <div class="footer-bottom">

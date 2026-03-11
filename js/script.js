@@ -1,8 +1,25 @@
+// ══ FIREBASE CONFIG ══
+const firebaseConfig = {
+  apiKey: "AIzaSyADq1FoK6yqYVlMa742CPtBiK_dX51nZXM",
+  authDomain: "nio-flores-eternas.firebaseapp.com",
+  databaseURL: "https://nio-flores-eternas-default-rtdb.firebaseio.com",
+  projectId: "nio-flores-eternas",
+  storageBucket: "nio-flores-eternas.firebasestorage.app",
+  messagingSenderId: "153221542065",
+  appId: "1:153221542065:web:78bac926ff87f1a6d4f290"
+};
+
+// Inicializar Firebase usando CDN compat (sin módulos)
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
 // ══ LOADER ══
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
   }, 800);
+  initReviews();
+  initCounter();
 });
 
 // ══ HERO CANVAS ══
@@ -47,13 +64,10 @@ window.addEventListener('load', () => {
 
   function frame(){
     ctx.clearRect(0,0,W,H);
-
-    // Background
     const g = ctx.createRadialGradient(W*.4,H*.35,0,W*.5,H*.5,Math.max(W,H)*.9);
     g.addColorStop(0,'#2a0a16'); g.addColorStop(.4,'#18060d'); g.addColorStop(1,'#0c0208');
     ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
 
-    // Nebulas
     [[W*.15,H*.25,W*.5,'rgba(200,65,90,.08)'],[W*.8,H*.7,W*.5,'rgba(212,168,67,.05)']].forEach(([x,y,r,c])=>{
       const n=ctx.createRadialGradient(x,y,0,x,y,r);
       n.addColorStop(0,c); n.addColorStop(1,c.replace(/[\d.]+\)$/,'0)'));
@@ -61,21 +75,15 @@ window.addEventListener('load', () => {
     });
 
     t += .016;
-
-    // Stars
     stars.forEach(s=>{
       const a = .2 + .55*Math.sin(t*s.sp*60+s.ph);
       ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
       ctx.fillStyle=`rgba(255,240,230,${a*s.a+.1})`; ctx.fill();
     });
 
-    // Petals
     petals.forEach(p=>{
-      p.y -= p.speed;
-      p.x += p.drift * .5;
-      p.rot += p.rotSpeed;
+      p.y -= p.speed; p.x += p.drift * .5; p.rot += p.rotSpeed;
       if(p.y < -20){ p.y = H+20; p.x = Math.random()*W; }
-
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rot*Math.PI/180);
@@ -86,7 +94,6 @@ window.addEventListener('load', () => {
       ctx.fill();
       ctx.restore();
     });
-
     requestAnimationFrame(frame);
   }
 
@@ -150,11 +157,8 @@ const cartSummary = document.getElementById('cartSummary');
 
 function addToCart(name, price){
   const existing = cart.find(i=>i.name===name);
-  if(existing){ existing.qty++; }
-  else { cart.push({name, price, qty:1}); }
+  if(existing){ existing.qty++; } else { cart.push({name, price, qty:1}); }
   updateCart();
-
-  // Feedback visual
   const btn = event.target;
   btn.textContent = '✓ Agregado';
   btn.style.background = '#2d6a4f';
@@ -174,24 +178,168 @@ document.getElementById('cartCheckout').addEventListener('click', ()=>{
   const items = cart.map(i=>`• ${i.name} x${i.qty} = $${(i.price*i.qty).toFixed(2)}`).join('\n');
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2);
   const msg = encodeURIComponent(`Hola! Quiero hacer el siguiente pedido 🌸\n\n${items}\n\nTotal: $${total}\n\n¿Pueden confirmarme disponibilidad?`);
+  incrementCounter();
   window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
 });
 
 document.getElementById('cartClear').addEventListener('click', ()=>{
-  cart = [];
-  updateCart();
+  cart = []; updateCart();
 });
 
-// Pedir producto individual
 function orderProduct(name){
   const msg = encodeURIComponent(`Hola! Me interesa pedir: ${name} 🌸 ¿Pueden darme más información y disponibilidad?`);
+  incrementCounter();
   window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
 }
 
-// Contacto rápido
 function sendOrder(tipo){
   const msg = encodeURIComponent(`Hola! Estoy interesada/o en ${tipo} 🌸 ¿Me pueden dar más información?`);
+  incrementCounter();
   window.open(`https://wa.me/593999999999?text=${msg}`, '_blank');
+}
+
+// ══ CONTADOR DE PEDIDOS (Firebase) ══
+function initCounter(){
+  const counterRef = db.ref('contador_pedidos');
+  counterRef.on('value', snap => {
+    const val = snap.val() || 200;
+    const el = document.getElementById('stat-pedidos');
+    if(el) animateCounter(el, val);
+  });
+}
+
+function incrementCounter(){
+  const counterRef = db.ref('contador_pedidos');
+  counterRef.transaction(current => (current || 200) + 1);
+}
+
+function animateCounter(el, target){
+  const start = parseInt(el.textContent) || 0;
+  const duration = 1200;
+  const startTime = performance.now();
+  function update(now){
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(start + (target - start) * eased) + '+';
+    if(progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+// ══ RESEÑAS (Firebase) ══
+function initReviews(){
+  const reviewsRef = db.ref('reseñas');
+  reviewsRef.on('value', snap => {
+    const data = snap.val();
+    const reviews = data ? Object.values(data).sort((a,b) => b.timestamp - a.timestamp) : [];
+    renderReviews(reviews);
+    updateReviewCount(reviews.length);
+  });
+}
+
+function renderReviews(reviews){
+  const grid = document.getElementById('testimoniosGrid');
+  if(!grid) return;
+
+  if(reviews.length === 0){
+    grid.innerHTML = `<div class="no-reviews">¡Sé el primero en dejar una reseña! 🌸</div>`;
+    return;
+  }
+
+  grid.innerHTML = reviews.slice(0, 6).map(r => `
+    <div class="testimonio reveal">
+      <div class="test-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <p>"${escapeHtml(r.message)}"</p>
+      <div class="test-author">
+        <div class="test-avatar">${r.name.charAt(0).toUpperCase()}</div>
+        <div>
+          <strong>${escapeHtml(r.name)}</strong>
+          <span class="test-date">${formatDate(r.timestamp)}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Re-observar los nuevos elementos
+  grid.querySelectorAll('.reveal').forEach(el => {
+    el.classList.add('visible');
+  });
+}
+
+function updateReviewCount(count){
+  const el = document.getElementById('stat-resenas');
+  if(el) el.textContent = count + '+';
+}
+
+function submitReview(){
+  const name    = document.getElementById('reviewName').value.trim();
+  const stars   = parseInt(document.querySelector('.star-btn.active')?.dataset.stars || 0);
+  const message = document.getElementById('reviewMessage').value.trim();
+  const btn     = document.getElementById('submitReview');
+
+  if(!name){ showReviewError('Escribe tu nombre 😊'); return; }
+  if(!stars){ showReviewError('Selecciona las estrellas ⭐'); return; }
+  if(message.length < 10){ showReviewError('Cuéntanos un poco más 🌸'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  db.ref('reseñas').push({
+    name, stars, message,
+    timestamp: Date.now()
+  }).then(() => {
+    document.getElementById('reviewName').value = '';
+    document.getElementById('reviewMessage').value = '';
+    document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('active'));
+    btn.textContent = '✓ ¡Gracias por tu reseña!';
+    btn.style.background = '#2d6a4f';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Publicar reseña';
+      btn.style.background = '';
+    }, 3000);
+  }).catch(() => {
+    showReviewError('Error al enviar, intenta de nuevo');
+    btn.disabled = false;
+    btn.textContent = 'Publicar reseña';
+  });
+}
+
+function showReviewError(msg){
+  const err = document.getElementById('reviewError');
+  err.textContent = msg;
+  err.style.display = 'block';
+  setTimeout(() => err.style.display = 'none', 3000);
+}
+
+// Estrellas interactivas
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.star-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      const val = parseInt(btn.dataset.stars);
+      document.querySelectorAll('.star-btn').forEach(b => {
+        b.classList.toggle('hover', parseInt(b.dataset.stars) <= val);
+      });
+    });
+    btn.addEventListener('mouseleave', () => {
+      document.querySelectorAll('.star-btn').forEach(b => b.classList.remove('hover'));
+    });
+    btn.addEventListener('click', () => {
+      const val = parseInt(btn.dataset.stars);
+      document.querySelectorAll('.star-btn').forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.stars) <= val);
+      });
+    });
+  });
+});
+
+function escapeHtml(str){
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function formatDate(ts){
+  const d = new Date(ts);
+  return d.toLocaleDateString('es-EC', { day:'numeric', month:'short', year:'numeric' });
 }
 
 // ══ DEMO CARTA DIGITAL ══
@@ -200,7 +348,6 @@ let demoPlayed = false;
 function playDemo(){
   if(demoPlayed) return;
   demoPlayed = true;
-
   const flap = document.getElementById('demoFlap');
   const card = document.getElementById('demoCard');
   const seal = document.getElementById('demoSeal');
@@ -209,12 +356,8 @@ function playDemo(){
 
   setTimeout(()=>{ flap.classList.add('open'); seal.style.opacity='0'; }, 200);
   setTimeout(()=>{ card.classList.add('rising'); }, 800);
-
-  // Burst
   setTimeout(()=>{
     const screen = document.querySelector('.demo-screen');
-    const rect = env.getBoundingClientRect();
-    const screenRect = screen.getBoundingClientRect();
     ['💕','🌸','✨','💖'].forEach((e,i)=>{
       const el = document.createElement('div');
       el.textContent = e;
@@ -228,7 +371,6 @@ function playDemo(){
       setTimeout(()=>el.remove(),800);
     });
   },900);
-
   setTimeout(()=>{
     env.style.display='none';
     msg.classList.remove('hidden');
@@ -243,7 +385,6 @@ function resetDemo(){
   const seal = document.getElementById('demoSeal');
   const env  = document.getElementById('demoEnv');
   const msg  = document.getElementById('demoMsg');
-
   msg.classList.remove('show');
   setTimeout(()=>{
     msg.classList.add('hidden');
@@ -254,13 +395,11 @@ function resetDemo(){
   },400);
 }
 
-// ══ ACTIVE NAV LINK ══
+// ══ ACTIVE NAV ══
 const sections = document.querySelectorAll('section[id]');
 window.addEventListener('scroll',()=>{
   let current = '';
-  sections.forEach(s=>{
-    if(window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
+  sections.forEach(s=>{ if(window.scrollY >= s.offsetTop - 120) current = s.id; });
   document.querySelectorAll('.nav-link').forEach(a=>{
     a.style.color = '';
     if(a.getAttribute('href') === `#${current}`){
