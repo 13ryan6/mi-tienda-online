@@ -293,7 +293,7 @@ function initCounterObserver(){
 
 // ══ RESEÑAS (Firebase) ══
 function initReviews(){
-  const reviewsRef = db.ref('reseñas');
+  const reviewsRef = db.ref('reviews');
   reviewsRef.on('value', snap => {
     const data = snap.val();
     const reviews = data ? Object.values(data).sort((a,b) => b.timestamp - a.timestamp) : [];
@@ -357,7 +357,7 @@ function submitReview(){
   btn.disabled = true;
   btn.textContent = 'Enviando...';
 
-  db.ref('reseñas').push({
+  db.ref('reviews').push({
     name, stars, message,
     timestamp: Date.now()
   }).then(() => {
