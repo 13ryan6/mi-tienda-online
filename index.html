@@ -116,220 +116,811 @@
     </div>
     <div class="filters reveal">
       <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="flores">🌸 Flores Sueltas</button>
-      <button class="filter-btn" data-filter="ramos">💐 Ramos</button>
-      <button class="filter-btn" data-filter="chocolates">🍫 Con Chocolates</button>
+      <button class="filter-btn" data-filter="arreglos">🌸 Arreglos de Flores</button>
+      <button class="filter-btn" data-filter="vinos">🍷 Vinos</button>
       <button class="filter-btn" data-filter="munecas">🎀 Muñecas</button>
-      <button class="filter-btn" data-filter="cajas">🎁 Cajas Regalo</button>
+      <button class="filter-btn" data-filter="sorpresa">🎁 Detalles Sorpresa</button>
+      <button class="filter-btn" data-filter="chocolate">🍫 Flores con Chocolate</button>
     </div>
 
     <div class="product-grid" id="productGrid">
 
-      <!-- FLORES SUELTAS -->
-      <div class="product-card reveal" data-cat="flores">
+
+      <!-- ══════════════════════════════ -->
+      <!-- CATEGORÍA: ARREGLOS DE FLORES -->
+      <!-- ══════════════════════════════ -->
+
+      <!-- ARREGLO 1 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/ZzDbx9SB/Whats-App-Image-2026-03-11-at-7-24-16-AM-3.jpg" alt="Flor rosada" class="gallery-img active">
-            <img src="https://i.ibb.co/xt189kFC/Whats-App-Image-2026-03-11-at-7-24-15-AM-1.jpg" alt="Flor fucsia" class="gallery-img">
-            <img src="https://i.ibb.co/Qv72STF4/Whats-App-Image-2026-03-11-at-7-24-16-AM.jpg" alt="Flor roja" class="gallery-img">
+            <img src="URL_FOTO_1A" alt="Arreglo 1" class="gallery-img active">
+            <img src="URL_FOTO_1B" alt="Arreglo 1 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge hot">🔥 Más vendido</span></div>
-          <button class="product-quick" onclick="orderProduct('Flor Eterna Suelta')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 1')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Flor Eterna Suelta</h3>
-          <p>Rosa de cinta hecha a mano con papel decorativo. Elige tu color y empaque. Dura para siempre.</p>
+          <h3>NOMBRE DEL ARREGLO 1</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 1</p>
           <div class="product-footer">
-            <div class="price">$1.69</div>
-            <button class="add-cart" onclick="addToCart('Flor Eterna Suelta', 1.69)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 1', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- BOUQUET PEQUEÑO -->
-      <div class="product-card reveal" data-cat="flores">
+      <!-- ARREGLO 2 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/bjFwfWPp/Whats-App-Image-2026-03-11-at-7-24-17-AM-1.jpg" alt="Flor azul" class="gallery-img active">
-            <img src="https://i.ibb.co/LDDJGv7D/Whats-App-Image-2026-03-11-at-7-24-17-AM.jpg" alt="Flor verde" class="gallery-img">
-            <img src="https://i.ibb.co/5xJg2J2p/Whats-App-Image-2026-03-11-at-7-24-16-AM-5.jpg" alt="Flor amarilla" class="gallery-img">
+            <img src="URL_FOTO_2A" alt="Arreglo 2" class="gallery-img active">
+            <img src="URL_FOTO_2B" alt="Arreglo 2 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge new">✨ Nuevo</span></div>
-          <button class="product-quick" onclick="orderProduct('Bouquet 1 Flor')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 2')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Bouquet 1 Flor</h3>
-          <p>Una flor eterna presentada en papel decorativo con moño. Perfecta para regalar en cualquier momento.</p>
+          <h3>NOMBRE DEL ARREGLO 2</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 2</p>
           <div class="product-footer">
-            <div class="price">$5.00</div>
-            <button class="add-cart" onclick="addToCart('Bouquet 1 Flor', 5.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 2', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- RAMO CON CHOCOLATES PEQUEÑO -->
-      <div class="product-card reveal" data-cat="ramos chocolates">
+      <!-- ARREGLO 3 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/S7P3bytD/Whats-App-Image-2026-03-11-at-7-25-09-AM-1.jpg" alt="Ramo rosa con chocolates" class="gallery-img active">
-            <img src="https://i.ibb.co/tM8MyrBQ/Whats-App-Image-2026-03-11-at-7-24-16-AM-1.jpg" alt="Flor blanca" class="gallery-img">
+            <img src="URL_FOTO_3A" alt="Arreglo 3" class="gallery-img active">
+            <img src="URL_FOTO_3B" alt="Arreglo 3 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge hot">🔥 Más vendido</span></div>
-          <button class="product-quick" onclick="orderProduct('Ramo con Chocolates Pequeño')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 3')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Ramo con Chocolates</h3>
-          <p>Ramo de flores eternas combinado con chocolates. Ideal para cumpleaños y San Valentín.</p>
+          <h3>NOMBRE DEL ARREGLO 3</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 3</p>
           <div class="product-footer">
-            <div class="price">$20.00</div>
-            <button class="add-cart" onclick="addToCart('Ramo con Chocolates', 20.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 3', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- RAMO GRANDE CON CHOCOLATES -->
-      <div class="product-card reveal" data-cat="ramos chocolates">
+      <!-- ARREGLO 4 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/Swq98SM4/Whats-App-Image-2026-03-11-at-7-24-15-AM.jpg" alt="Ramo grande rojo" class="gallery-img active">
-            <img src="https://i.ibb.co/C3FXV3GX/Whats-App-Image-2026-03-11-at-7-24-17-AM-3.jpg" alt="Ramo rosa fucsia" class="gallery-img">
-            <img src="https://i.ibb.co/MDqqJ6qw/Whats-App-Image-2026-03-11-at-7-24-17-AM-2.jpg" alt="Ramo rojo crema" class="gallery-img">
+            <img src="URL_FOTO_4A" alt="Arreglo 4" class="gallery-img active">
+            <img src="URL_FOTO_4B" alt="Arreglo 4 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge promo">⭐ Premium</span></div>
-          <button class="product-quick" onclick="orderProduct('Ramo Grande con Chocolates')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 4')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Ramo Grande con Chocolates</h3>
-          <p>Ramo premium de 12+ flores eternas con chocolates, mariposas doradas y luces LED. El regalo perfecto.</p>
+          <h3>NOMBRE DEL ARREGLO 4</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 4</p>
           <div class="product-footer">
-            <div class="price">$40.00 <span class="price-old">$50.00</span></div>
-            <button class="add-cart" onclick="addToCart('Ramo Grande con Chocolates', 40.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 4', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- CAJA REGALO -->
-      <div class="product-card reveal" data-cat="cajas chocolates">
+      <!-- ARREGLO 5 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/8D8x2CqK/Whats-App-Image-2026-03-11-at-7-24-16-AM-2.jpg" alt="Caja regalo ángulo 1" class="gallery-img active">
-            <img src="https://i.ibb.co/PZDM56Y7/Whats-App-Image-2026-03-11-at-7-24-15-AM-3.jpg" alt="Caja regalo ángulo 2" class="gallery-img">
-            <img src="https://i.ibb.co/0VJX8Lh1/Whats-App-Image-2026-03-11-at-7-24-14-AM.jpg" alt="Caja regalo ángulo 3" class="gallery-img">
+            <img src="URL_FOTO_5A" alt="Arreglo 5" class="gallery-img active">
+            <img src="URL_FOTO_5B" alt="Arreglo 5 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge new">🎁 Especial</span></div>
-          <button class="product-quick" onclick="orderProduct('Caja de Regalo con Flores y Vino')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 5')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Caja Regalo Flores + Vino</h3>
-          <p>Caja roja premium con flores eternas, vino y chocolates dorados. El regalo más completo y elegante.</p>
+          <h3>NOMBRE DEL ARREGLO 5</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 5</p>
           <div class="product-footer">
-            <div class="price">$55.00</div>
-            <button class="add-cart" onclick="addToCart('Caja Regalo Flores + Vino', 55.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 5', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- BOUQUET SOMBRERO -->
-      <div class="product-card reveal" data-cat="cajas chocolates">
+      <!-- ARREGLO 6 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/n8KJmPnK/Whats-App-Image-2026-03-11-at-7-24-15-AM-2.jpg" alt="Bouquet sombrero" class="gallery-img active">
+            <img src="URL_FOTO_6A" alt="Arreglo 6" class="gallery-img active">
+            <img src="URL_FOTO_6B" alt="Arreglo 6 vista 2" class="gallery-img">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge promo">✨ Exclusivo</span></div>
-          <button class="product-quick" onclick="orderProduct('Bouquet Sombrero con Chocolates')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 6')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Bouquet Sombrero</h3>
-          <p>Arreglo en caja sombrero con flores eternas y chocolates. Presentación única y muy elegante.</p>
+          <h3>NOMBRE DEL ARREGLO 6</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 6</p>
           <div class="product-footer">
-            <div class="price">$35.00</div>
-            <button class="add-cart" onclick="addToCart('Bouquet Sombrero con Chocolates', 35.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 6', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- MUÑECA QUINCEAÑERA -->
+      <!-- ARREGLO 7 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_7A" alt="Arreglo 7" class="gallery-img active">
+            <img src="URL_FOTO_7B" alt="Arreglo 7 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 7')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 7</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 7</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 7', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 8 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_8A" alt="Arreglo 8" class="gallery-img active">
+            <img src="URL_FOTO_8B" alt="Arreglo 8 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 8')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 8</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 8</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 8', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 9 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_9A" alt="Arreglo 9" class="gallery-img active">
+            <img src="URL_FOTO_9B" alt="Arreglo 9 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 9')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 9</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 9</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 9', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 10 — 2 fotos -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_10A" alt="Arreglo 10" class="gallery-img active">
+            <img src="URL_FOTO_10B" alt="Arreglo 10 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 10')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 10</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 10</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 10', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 11 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_11" alt="Arreglo 11" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 11')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 11</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 11</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 11', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 12 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_12" alt="Arreglo 12" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 12')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 12</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 12</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 12', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 13 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_13" alt="Arreglo 13" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 13')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 13</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 13</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 13', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 14 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_14" alt="Arreglo 14" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 14')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 14</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 14</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 14', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 15 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_15" alt="Arreglo 15" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 15')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 15</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 15</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 15', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 16 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_16" alt="Arreglo 16" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 16')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 16</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 16</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 16', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 17 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_17" alt="Arreglo 17" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 17')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 17</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 17</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 17', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 18 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_18" alt="Arreglo 18" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 18')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 18</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 18</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 18', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 19 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_19" alt="Arreglo 19" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 19')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 19</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 19</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 19', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 20 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_20" alt="Arreglo 20" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 20')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 20</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 20</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 20', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 21 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_21" alt="Arreglo 21" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 21')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 21</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 21</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 21', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 22 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_22" alt="Arreglo 22" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 22')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 22</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 22</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 22', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARREGLO 23 — 1 foto -->
+      <div class="product-card reveal" data-cat="arreglos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_FOTO_23" alt="Arreglo 23" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Arreglo de Flores 23')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL ARREGLO 23</h3>
+          <p>DESCRIPCIÓN DEL ARREGLO 23</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Arreglo de Flores 23', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════ -->
+      <!-- CATEGORÍA: VINOS  -->
+      <!-- ══════════════════ -->
+
+      <!-- VINO 1 — 2 fotos -->
+      <div class="product-card reveal" data-cat="vinos">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_VINO_1A" alt="Vino 1" class="gallery-img active">
+            <img src="URL_VINO_1B" alt="Vino 1 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Vino')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL VINO</h3>
+          <p>DESCRIPCIÓN DEL VINO</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Vino', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════ -->
+      <!-- CATEGORÍA: MUÑECAS  -->
+      <!-- ════════════════════ -->
+
+      <!-- MUÑECA — foto grupal (todas las categorías) -->
       <div class="product-card reveal" data-cat="munecas">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/bgQQV4sw/Whats-App-Image-2026-03-11-at-7-25-20-AM.jpg" alt="Muñeca verde quinceañera" class="gallery-img active">
-            <img src="https://i.ibb.co/rKd0dW76/Whats-App-Image-2026-03-11-at-7-25-09-AM.jpg" alt="Muñeca azul" class="gallery-img">
+            <img src="URL_MUNECAS_TODAS" alt="Todas las muñecas" class="gallery-img active">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge hot">🎀 Único</span></div>
-          <button class="product-quick" onclick="orderProduct('Muñeca Decorada Quinceañera/Evento')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Muñeca Decorada')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Muñeca Decorada</h3>
-          <p>Muñeca con vestido elaborado en flores de cinta. Perfecta para quinceañeras, graduaciones o regalos especiales.</p>
+          <h3>NOMBRE MUÑECA / CATEGORÍAS</h3>
+          <p>DESCRIPCIÓN DE LAS MUÑECAS</p>
           <div class="product-footer">
-            <div class="price">$45.00</div>
-            <button class="add-cart" onclick="addToCart('Muñeca Decorada', 45.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Muñeca Decorada', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- MUÑECA GRADUACIÓN -->
+      <!-- MUÑECA CATEGORÍA 1 — 1 foto -->
       <div class="product-card reveal" data-cat="munecas">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/S7P3bytD/Whats-App-Image-2026-03-11-at-7-25-09-AM-1.jpg" alt="Muñeca graduación" class="gallery-img active">
+            <img src="URL_MUNECA_CAT1" alt="Muñeca categoría 1" class="gallery-img active">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge new">🎓 Graduación</span></div>
-          <button class="product-quick" onclick="orderProduct('Muñeca Graduación')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 1')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Muñeca Graduación</h3>
-          <p>Muñeca con toga y birrete, vestido de flores de cinta. El regalo ideal para celebrar un grado.</p>
+          <h3>NOMBRE MUÑECA CATEGORÍA 1</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 1</p>
           <div class="product-footer">
-            <div class="price">$45.00</div>
-            <button class="add-cart" onclick="addToCart('Muñeca Graduación', 45.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 1', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
 
-      <!-- COMBO RAMO + CARTA -->
-      <div class="product-card reveal" data-cat="ramos">
+      <!-- MUÑECA CATEGORÍA 2 — 1 foto -->
+      <div class="product-card reveal" data-cat="munecas">
         <div class="product-img-wrap">
           <div class="gallery" data-index="0">
-            <img src="https://i.ibb.co/BVVMGN80/Whats-App-Image-2026-03-11-at-7-24-16-AM-4.jpg" alt="Flor amarilla blanco" class="gallery-img active">
-            <img src="https://i.ibb.co/ZzDbx9SB/Whats-App-Image-2026-03-11-at-7-24-16-AM-3.jpg" alt="Flor rosada" class="gallery-img">
+            <img src="URL_MUNECA_CAT2" alt="Muñeca categoría 2" class="gallery-img active">
             <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
             <button class="gal-next" onclick="slideGallery(this,1)">›</button>
             <div class="gal-dots"></div>
           </div>
-          <div class="product-badges"><span class="badge new">💌 Incluye carta</span></div>
-          <button class="product-quick" onclick="orderProduct('Combo Bouquet + Carta Digital')">Pedir ahora</button>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 2')">Pedir ahora</button>
         </div>
         <div class="product-info">
-          <h3>Combo Bouquet + Carta Digital</h3>
-          <p>Bouquet de flor eterna más una carta digital animada y personalizada para compartir por WhatsApp.</p>
+          <h3>NOMBRE MUÑECA CATEGORÍA 2</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 2</p>
           <div class="product-footer">
-            <div class="price">$11.00 <span class="price-old">$14.00</span></div>
-            <button class="add-cart" onclick="addToCart('Combo Bouquet + Carta Digital', 11.00)">+ Agregar</button>
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 2', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUÑECA CATEGORÍA 3 — 1 foto -->
+      <div class="product-card reveal" data-cat="munecas">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_MUNECA_CAT3" alt="Muñeca categoría 3" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 3')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE MUÑECA CATEGORÍA 3</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 3</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 3', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUÑECA CATEGORÍA 4 — 1 foto -->
+      <div class="product-card reveal" data-cat="munecas">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_MUNECA_CAT4" alt="Muñeca categoría 4" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 4')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE MUÑECA CATEGORÍA 4</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 4</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 4', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUÑECA CATEGORÍA 5 — 1 foto -->
+      <div class="product-card reveal" data-cat="munecas">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_MUNECA_CAT5" alt="Muñeca categoría 5" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 5')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE MUÑECA CATEGORÍA 5</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 5</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 5', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUÑECA CATEGORÍA 6 — 1 foto -->
+      <div class="product-card reveal" data-cat="munecas">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_MUNECA_CAT6" alt="Muñeca categoría 6" class="gallery-img active">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Muñeca Categoría 6')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE MUÑECA CATEGORÍA 6</h3>
+          <p>DESCRIPCIÓN MUÑECA CATEGORÍA 6</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Muñeca Categoría 6', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════ -->
+      <!-- CATEGORÍA: DETALLES SORPRESA -->
+      <!-- ═══════════════════════════ -->
+
+      <!-- DETALLE SORPRESA — 3 fotos -->
+      <div class="product-card reveal" data-cat="sorpresa">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_SORPRESA_1" alt="Detalle sorpresa vista 1" class="gallery-img active">
+            <img src="URL_SORPRESA_2" alt="Detalle sorpresa vista 2" class="gallery-img">
+            <img src="URL_SORPRESA_3" alt="Detalle sorpresa vista 3" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Detalle Sorpresa')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE DEL DETALLE SORPRESA</h3>
+          <p>DESCRIPCIÓN DEL DETALLE SORPRESA</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Detalle Sorpresa', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════════════════════════════════ -->
+      <!-- CATEGORÍA: FLORES CON CHOCOLATE -->
+      <!-- ════════════════════════════════ -->
+
+      <!-- FLORES CON CHOCOLATE 1 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_1A" alt="Flores con chocolate 1" class="gallery-img active">
+            <img src="URL_CHOCO_1B" alt="Flores con chocolate 1 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 1')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 1</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 1</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 1', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORES CON CHOCOLATE 2 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_2A" alt="Flores con chocolate 2" class="gallery-img active">
+            <img src="URL_CHOCO_2B" alt="Flores con chocolate 2 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 2')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 2</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 2</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 2', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORES CON CHOCOLATE 3 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_3A" alt="Flores con chocolate 3" class="gallery-img active">
+            <img src="URL_CHOCO_3B" alt="Flores con chocolate 3 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 3')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 3</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 3</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 3', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORES CON CHOCOLATE 4 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_4A" alt="Flores con chocolate 4" class="gallery-img active">
+            <img src="URL_CHOCO_4B" alt="Flores con chocolate 4 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 4')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 4</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 4</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 4', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORES CON CHOCOLATE 5 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_5A" alt="Flores con chocolate 5" class="gallery-img active">
+            <img src="URL_CHOCO_5B" alt="Flores con chocolate 5 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 5')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 5</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 5</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 5', 0)">+ Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLORES CON CHOCOLATE 6 — 2 fotos -->
+      <div class="product-card reveal" data-cat="chocolate">
+        <div class="product-img-wrap">
+          <div class="gallery" data-index="0">
+            <img src="URL_CHOCO_6A" alt="Flores con chocolate 6" class="gallery-img active">
+            <img src="URL_CHOCO_6B" alt="Flores con chocolate 6 vista 2" class="gallery-img">
+            <button class="gal-prev" onclick="slideGallery(this,-1)">‹</button>
+            <button class="gal-next" onclick="slideGallery(this,1)">›</button>
+            <div class="gal-dots"></div>
+          </div>
+          <button class="product-quick" onclick="orderProduct('Flores con Chocolate 6')">Pedir ahora</button>
+        </div>
+        <div class="product-info">
+          <h3>NOMBRE FLORES CON CHOCOLATE 6</h3>
+          <p>DESCRIPCIÓN FLORES CON CHOCOLATE 6</p>
+          <div class="product-footer">
+            <button class="add-cart" onclick="addToCart('Flores con Chocolate 6', 0)">+ Consultar</button>
           </div>
         </div>
       </div>
@@ -450,11 +1041,11 @@
       <div class="contact-form reveal">
         <h3>¿Qué necesitas?</h3>
         <div class="order-options">
-          <button class="order-opt" onclick="sendOrder('flores eternas sueltas o un bouquet')">🌸 Flores Sueltas</button>
-          <button class="order-opt" onclick="sendOrder('un ramo con chocolates')">🍫 Ramo con Chocolates</button>
-          <button class="order-opt" onclick="sendOrder('una caja de regalo con flores y vino')">🎁 Caja Regalo</button>
-          <button class="order-opt" onclick="sendOrder('una muñeca decorada')">🎀 Muñeca Decorada</button>
-          <button class="order-opt" onclick="sendOrder('una carta digital personalizada')">💌 Carta Digital</button>
+          <button class="order-opt" onclick="sendOrder('un arreglo de flores')">🌸 Arreglo de Flores</button>
+          <button class="order-opt" onclick="sendOrder('un vino')">🍷 Vinos</button>
+          <button class="order-opt" onclick="sendOrder('una muñeca decorada')">🎀 Muñecas</button>
+          <button class="order-opt" onclick="sendOrder('un detalle sorpresa')">🎁 Detalles Sorpresa</button>
+          <button class="order-opt" onclick="sendOrder('flores con chocolate')">🍫 Flores con Chocolate</button>
           <button class="order-opt" onclick="sendOrder('información de precios y disponibilidad')">💬 Solo consultar</button>
         </div>
       </div>
@@ -471,9 +1062,11 @@
       </div>
       <div class="footer-links">
         <strong>Productos</strong>
-        <a href="#productos">Flores Sueltas</a>
-        <a href="#productos">Ramos con Chocolates</a>
-        <a href="#productos">Muñecas Decoradas</a>
+        <a href="#productos">Arreglos de Flores</a>
+        <a href="#productos">Vinos</a>
+        <a href="#productos">Muñecas</a>
+        <a href="#productos">Detalles Sorpresa</a>
+        <a href="#productos">Flores con Chocolate</a>
         <a href="#carta-digital">Carta Digital</a>
       </div>
       <div class="footer-links">
