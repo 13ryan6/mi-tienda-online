@@ -244,14 +244,22 @@ a { text-decoration:none; }
 
 .product-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(clamp(260px,30vw,340px),1fr));
+  grid-template-columns:repeat(3, 1fr);
   gap:clamp(16px,2.5vw,28px);
+  align-items:start;
+}
+@media(max-width:900px){
+  .product-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:540px){
+  .product-grid { grid-template-columns:1fr; }
 }
 .product-card {
   background:var(--white); border-radius:var(--radius);
   overflow:hidden; box-shadow:0 4px 20px rgba(200,65,90,.06);
   transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s;
   position:relative;
+  display:flex; flex-direction:column;
 }
 .product-card.hidden-filter { display:none; }
 .product-card:hover { transform:translateY(-10px); box-shadow:var(--shadow-lg); }
@@ -551,7 +559,6 @@ footer { background:#0d0608; padding:60px 0 32px; }
   .footer-grid { grid-template-columns:1fr; }
   .hero-stats { gap:20px; }
   .stat-div { display:none; }
-  .product-grid { grid-template-columns:1fr; }
 }
 
 /* ══ RESEÑAS Y FORMULARIO ══ */
