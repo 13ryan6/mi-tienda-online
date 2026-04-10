@@ -413,61 +413,177 @@ function formatDate(ts){
   return d.toLocaleDateString('es-EC', { day:'numeric', month:'short', year:'numeric' });
 }
 
-// ══ DEMO CARTA DIGITAL ══
+// ══ CARTA DIGITAL — DATOS POR TIPO ══
+const cartasPorTipo = {
+  basico: [
+    { eyebrow: 'Con todo mi amor', title: 'Para ti, amor mío 🌸', body: 'Porque cada día contigo\nes el más bonito de mi vida.\n<em>Te amo infinito.</em>', sign: 'Tu persona favorita 💕' },
+    { eyebrow: 'En este día especial', title: '¡Feliz cumpleaños! 🎂', body: 'Que este día esté lleno\nde todo lo que te hace sonreír.\n<em>Eres increíble.</em>', sign: 'Con mucho cariño 🌸' },
+    { eyebrow: 'Siempre en mi corazón', title: 'Te extraño tanto ✨', body: 'La distancia no cambia\nlo mucho que te quiero.\n<em>Siempre contigo.</em>', sign: 'Para siempre tuyo/a 💖' },
+    { eyebrow: 'Un pequeño recordatorio', title: 'Eres lo mejor 💌', body: 'Solo quería decirte\nque haces todo más bonito.\n<em>Gracias por existir.</em>', sign: 'Con amor eterno 🌺' },
+    { eyebrow: 'Hoy y siempre', title: 'Mi persona favorita 🦋', body: 'No necesito una razón\npara pensar en ti.\n<em>Simplemente te quiero.</em>', sign: 'Tuyo/a para siempre 💫' },
+    { eyebrow: 'En este momento especial', title: '¡Lo lograste! 🎓', body: 'Tu esfuerzo y dedicación\ndan frutos increíbles.\n<em>Estoy muy orgulloso/a de ti.</em>', sign: 'Con todo mi orgullo 🌟' },
+    { eyebrow: 'Desde el fondo de mi alma', title: 'Gracias por todo 🌹', body: 'Por cada momento,\npor cada abrazo, por cada sonrisa.\n<em>No sé qué haría sin ti.</em>', sign: 'Con amor infinito 💗' },
+    { eyebrow: 'Para recordarte', title: 'Eres mi felicidad 🌈', body: 'Cuando estás cerca\nel mundo tiene más color.\n<em>Nunca lo olvides.</em>', sign: 'El/La que más te quiere 🌸' },
+  ],
+  personalizado: [
+    { eyebrow: 'Un mensaje especial', title: 'Para {nombre} 💌', body: '{mensaje}', sign: 'Con todo el corazón 💕' },
+    { eyebrow: 'Desde lo más profundo', title: 'Hola, {nombre} 🌸', body: '{mensaje}', sign: 'Con cariño eterno 🌺' },
+    { eyebrow: 'Solo para ti', title: '{nombre}, esto es para ti ✨', body: '{mensaje}', sign: 'Siempre tuyo/a 💖' },
+    { eyebrow: 'Con todo mi amor', title: 'Mi querido/a {nombre} 🦋', body: '{mensaje}', sign: 'Para siempre 💫' },
+    { eyebrow: 'Un momento especial', title: '¡Para ti, {nombre}! 🎁', body: '{mensaje}', sign: 'Con mucho amor 🌹' },
+    { eyebrow: 'Palabras del corazón', title: '{nombre}, te dedico esto 🌟', body: '{mensaje}', sign: 'Con amor sincero 💗' },
+    { eyebrow: 'Porque te lo mereces', title: 'Esto es para ti, {nombre} 🎂', body: '{mensaje}', sign: 'Tu persona favorita 💕' },
+    { eyebrow: 'De corazón a corazón', title: '{nombre}, escucha esto 🌈', body: '{mensaje}', sign: 'Con todo mi ser 🌸' },
+  ],
+  premium: [
+    { eyebrow: 'Un recuerdo que nunca olvidarás', title: 'Para {nombre}, con amor 🌹', body: '{mensaje}\n\n<em>Este arreglo fue creado especialmente para ti.</em>', sign: 'Guardado en mi corazón 💖' },
+    { eyebrow: 'Momentos que perduran', title: '{nombre}, esto lo creé para ti ✨', body: '{mensaje}\n\n<em>Cada detalle fue pensado en ti.</em>', sign: 'Con amor eterno 💫' },
+    { eyebrow: 'Una imagen vale más que mil palabras', title: 'Mi regalo para ti, {nombre} 🎁', body: '{mensaje}\n\n<em>Espero que este recuerdo te acompañe siempre.</em>', sign: 'Tu admirador/a secreto/a 🌸' },
+    { eyebrow: 'Un tesoro especial', title: '{nombre}, guarda este momento 🌷', body: '{mensaje}\n\n<em>Este arreglo es tan único como tú.</em>', sign: 'Con todo mi corazón 💕' },
+    { eyebrow: 'Porque mereces lo mejor', title: 'Solo para ti, {nombre} 🌺', body: '{mensaje}\n\n<em>Lo más bello, para la persona más especial.</em>', sign: 'Con amor infinito 💗' },
+    { eyebrow: 'Un detalle que habla por mí', title: '{nombre}, mira lo que preparé 🎀', body: '{mensaje}\n\n<em>Creado a mano, desde el alma.</em>', sign: 'Siempre tuyo/a 🌟' },
+    { eyebrow: 'Desde lo más profundo', title: 'Mi querido/a {nombre} 💌', body: '{mensaje}\n\n<em>Este arreglo lleva mis mejores deseos para ti.</em>', sign: 'Para siempre contigo 💖' },
+    { eyebrow: 'Un regalo hecho con amor', title: '¡Para ti, {nombre}! 🌸', body: '{mensaje}\n\n<em>Cada flor, cada detalle... todo es tuyo.</em>', sign: 'Con el corazón en la mano 🌹' },
+  ],
+};
+
+// ══ CARTA DIGITAL — ESTADO ══
 let demoPlayed = false;
+let tipoActivo = 'basico';
 
-const cartasDemo = [
-  { eyebrow: 'Con todo mi amor', title: 'Para ti, amor mío 🌸', body: 'Porque cada día contigo\nes el más bonito de mi vida.\n<em>Te amo infinito.</em>', sign: 'Tu persona favorita 💕' },
-  { eyebrow: 'En este día especial', title: '¡Feliz cumpleaños! 🎂', body: 'Que este día esté lleno\nde todo lo que te hace sonreír.\n<em>Eres increíble.</em>', sign: 'Con mucho cariño 🌸' },
-  { eyebrow: 'Siempre en mi corazón', title: 'Te extraño tanto ✨', body: 'La distancia no cambia\nlo mucho que te quiero.\n<em>Siempre contigo.</em>', sign: 'Para siempre tuyo/a 💖' },
-  { eyebrow: 'Un pequeño recordatorio', title: 'Eres lo mejor 💌', body: 'Solo quería decirte\nque haces todo más bonito.\n<em>Gracias por existir.</em>', sign: 'Con amor eterno 🌺' },
-  { eyebrow: 'Hoy y siempre', title: 'Mi persona favorita 🦋', body: 'No necesito una razón\npara pensar en ti.\n<em>Simplemente te quiero.</em>', sign: 'Tuyo/a para siempre 💫' },
-  { eyebrow: 'En este momento especial', title: '¡Lo lograste! 🎓', body: 'Tu esfuerzo y dedicación\ndan frutos increíbles.\n<em>Estoy muy orgulloso/a de ti.</em>', sign: 'Con todo mi orgullo 🌟' },
-  { eyebrow: 'Desde el fondo de mi alma', title: 'Gracias por todo 🌹', body: 'Por cada momento,\npor cada abrazo, por cada sonrisa.\n<em>No sé qué haría sin ti.</em>', sign: 'Con amor infinito 💗' },
-  { eyebrow: 'Para recordarte', title: 'Eres mi felicidad 🌈', body: 'Cuando estás cerca\nel mundo tiene más color.\n<em>Nunca lo olvides.</em>', sign: 'El/La que más te quiere 🌸' },
-];
+// ══ CARTA DIGITAL — SELECTOR DE TIPO ══
+function seleccionarTipo(planEl) {
+  const tipo = planEl.dataset.tipo;
+  tipoActivo = tipo;
 
-function playDemo(){
-  if(demoPlayed) return;
+  // Highlight activo en planes
+  document.querySelectorAll('.carta-plan.selectable').forEach(p => p.classList.remove('tipo-activo'));
+  planEl.classList.add('tipo-activo');
+
+  // Mostrar/ocultar grupos de inputs
+  ['inputGrupoBasico', 'inputGrupoPersonalizado', 'inputGrupoPremium'].forEach(id => {
+    document.getElementById(id).classList.add('hidden');
+  });
+  const mapaGrupo = { basico: 'inputGrupoBasico', personalizado: 'inputGrupoPersonalizado', premium: 'inputGrupoPremium' };
+  document.getElementById(mapaGrupo[tipo]).classList.remove('hidden');
+
+  // Reset demo al cambiar tipo
+  if (demoPlayed) resetDemo();
+}
+
+// ══ CARTA DIGITAL — LEER INPUTS ══
+function leerDatosFormulario() {
+  const datos = { nombre: '', mensaje: '', fotoUrl: null };
+
+  if (tipoActivo === 'basico') {
+    datos.nombre = document.getElementById('cartaNombreBasico').value.trim();
+  } else if (tipoActivo === 'personalizado') {
+    datos.nombre  = document.getElementById('cartaNombrePersonalizado').value.trim();
+    datos.mensaje = document.getElementById('cartaMensajePersonalizado').value.trim();
+  } else if (tipoActivo === 'premium') {
+    datos.nombre  = document.getElementById('cartaNombrePremium').value.trim();
+    datos.mensaje = document.getElementById('cartaMensajePremium').value.trim();
+    const fileInput = document.getElementById('cartaFotoPremium');
+    if (fileInput.files && fileInput.files[0]) {
+      datos.fotoUrl = URL.createObjectURL(fileInput.files[0]);
+    }
+  }
+
+  return datos;
+}
+
+// ══ CARTA DIGITAL — CONSTRUIR CONTENIDO ══
+function construirContenidoCarta(tipo, datos) {
+  const pool = cartasPorTipo[tipo];
+  const plantilla = pool[Math.floor(Math.random() * pool.length)];
+  const nombre = datos.nombre || 'ti';
+
+  const reemplazar = (str) => str
+    .replace(/\{nombre\}/g, nombre)
+    .replace(/\{mensaje\}/g, datos.mensaje || '');
+
+  let body = reemplazar(plantilla.body);
+
+  // Básico: ignora inputs de mensaje, usa body tal cual
+  if (tipo === 'basico') {
+    body = plantilla.body;
+  }
+
+  // Personalizado: si no hay mensaje, usa body de la plantilla como fallback
+  if (tipo === 'personalizado' && !datos.mensaje) {
+    const fallback = cartasPorTipo.basico[Math.floor(Math.random() * cartasPorTipo.basico.length)];
+    body = fallback.body;
+  }
+
+  return {
+    eyebrow: reemplazar(plantilla.eyebrow),
+    title:   reemplazar(plantilla.title),
+    body:    body,
+    sign:    reemplazar(plantilla.sign),
+    fotoUrl: tipo === 'premium' ? datos.fotoUrl : null,
+  };
+}
+
+// ══ CARTA DIGITAL — RENDERIZAR EN DOM ══
+function renderizarCarta(contenido) {
+  const msg = document.getElementById('demoMsg');
+  msg.querySelector('.demo-msg-eyebrow').textContent = contenido.eyebrow;
+  msg.querySelector('.demo-msg-title').textContent   = contenido.title;
+  msg.querySelector('.demo-msg-body').innerHTML      = contenido.body.replace(/\n/g, '<br>');
+  msg.querySelector('.demo-msg-sign').textContent    = contenido.sign;
+
+  // Foto para Premium
+  const fotoWrapper = document.getElementById('demoMsgFoto');
+  const fotoImg     = document.getElementById('demoMsgFotoImg');
+  if (contenido.fotoUrl) {
+    fotoImg.src = contenido.fotoUrl;
+    fotoWrapper.classList.remove('hidden');
+  } else {
+    fotoWrapper.classList.add('hidden');
+    fotoImg.src = '';
+  }
+}
+
+// ══ CARTA DIGITAL — ANIMACIÓN PRINCIPAL ══
+function playDemo() {
+  if (demoPlayed) return;
   demoPlayed = true;
+
+  const datos    = leerDatosFormulario();
+  const contenido = construirContenidoCarta(tipoActivo, datos);
+  renderizarCarta(contenido);
+
   const flap = document.getElementById('demoFlap');
   const card = document.getElementById('demoCard');
   const seal = document.getElementById('demoSeal');
   const env  = document.getElementById('demoEnv');
   const msg  = document.getElementById('demoMsg');
 
-  // Elegir carta aleatoria
-  const carta = cartasDemo[Math.floor(Math.random() * cartasDemo.length)];
-  msg.querySelector('.demo-msg-eyebrow').textContent = carta.eyebrow;
-  msg.querySelector('.demo-msg-title').textContent = carta.title;
-  msg.querySelector('.demo-msg-body').innerHTML = carta.body.replace(/\n/g, '<br>');
-  msg.querySelector('.demo-msg-sign').textContent = carta.sign;
-
-  setTimeout(()=>{ flap.classList.add('open'); seal.style.opacity='0'; }, 200);
-  setTimeout(()=>{ card.classList.add('rising'); }, 800);
-  setTimeout(()=>{
+  setTimeout(() => { flap.classList.add('open'); seal.style.opacity = '0'; }, 200);
+  setTimeout(() => { card.classList.add('rising'); }, 800);
+  setTimeout(() => {
     const screen = document.querySelector('.demo-screen');
-    ['💕','🌸','✨','💖'].forEach((e,i)=>{
+    ['💕', '🌸', '✨', '💖'].forEach((e, i) => {
       const el = document.createElement('div');
       el.textContent = e;
-      el.style.cssText=`position:absolute;font-size:1.1rem;pointer-events:none;z-index:10;transition:transform .7s ease,opacity .7s ease;opacity:1;top:50%;left:50%;transform:translate(-50%,-50%)`;
+      el.style.cssText = `position:absolute;font-size:1.1rem;pointer-events:none;z-index:10;transition:transform .7s ease,opacity .7s ease;opacity:1;top:50%;left:50%;transform:translate(-50%,-50%)`;
       screen.appendChild(el);
-      const angle = (i/4)*Math.PI*2;
-      setTimeout(()=>{
-        el.style.transform=`translate(calc(-50% + ${Math.cos(angle)*55}px),calc(-50% + ${Math.sin(angle)*55}px))`;
-        el.style.opacity='0';
-      },30);
-      setTimeout(()=>el.remove(),800);
+      const angle = (i / 4) * Math.PI * 2;
+      setTimeout(() => {
+        el.style.transform = `translate(calc(-50% + ${Math.cos(angle) * 55}px),calc(-50% + ${Math.sin(angle) * 55}px))`;
+        el.style.opacity = '0';
+      }, 30);
+      setTimeout(() => el.remove(), 800);
     });
-  },900);
-  setTimeout(()=>{
-    env.style.display='none';
+  }, 900);
+  setTimeout(() => {
+    env.style.display = 'none';
     msg.classList.remove('hidden');
-    setTimeout(()=>msg.classList.add('show'),50);
-  },1600);
+    setTimeout(() => msg.classList.add('show'), 50);
+  }, 1600);
 }
 
-function resetDemo(){
+function resetDemo() {
   demoPlayed = false;
   const flap = document.getElementById('demoFlap');
   const card = document.getElementById('demoCard');
@@ -475,13 +591,22 @@ function resetDemo(){
   const env  = document.getElementById('demoEnv');
   const msg  = document.getElementById('demoMsg');
   msg.classList.remove('show');
-  setTimeout(()=>{
+  setTimeout(() => {
     msg.classList.add('hidden');
-    env.style.display='';
+    env.style.display = '';
     flap.classList.remove('open');
     card.classList.remove('rising');
-    seal.style.opacity='1';
-  },400);
+    seal.style.opacity = '1';
+  }, 400);
+}
+
+function actualizarLabelFoto(input) {
+  const label = document.getElementById('cartaFotoLabel');
+  if (input.files && input.files[0]) {
+    label.textContent = `✅ ${input.files[0].name}`;
+  } else {
+    label.textContent = '📷 Subir foto del arreglo (opcional)';
+  }
 }
 
 // ══ ACTIVE NAV ══
@@ -540,10 +665,17 @@ function goToSlide(gallery, index) {
   if (dots[index]) dots[index].classList.add('active');
 }
 
+// ══ CARTA DIGITAL — INICIALIZAR TIPO POR DEFECTO ══
+function initCartaTipo() {
+  const primerPlan = document.querySelector('.carta-plan.selectable');
+  if (primerPlan) seleccionarTipo(primerPlan);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initGalleries();
   initLightbox();
   initStarSelector();
+  initCartaTipo();
 });
 
 // ══ LIGHTBOX ══

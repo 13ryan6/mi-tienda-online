@@ -861,22 +861,43 @@
         <h2>Carta Digital<br>Personalizada 💌</h2>
         <p class="carta-desc">El detalle que ninguna otra florería ofrece. Una carta animada con el nombre y mensaje de tu elección, que se comparte por WhatsApp como un link.</p>
         <div class="carta-planes">
-          <div class="carta-plan">
+          <div class="carta-plan selectable active" data-tipo="basico" onclick="seleccionarTipo(this)">
             <div class="plan-icon">🌸</div>
             <div class="plan-info"><strong>Básico</strong><span>Nombre + mensaje prediseñado</span></div>
-            <div class="plan-price"></div>
           </div>
-          <div class="carta-plan featured">
+          <div class="carta-plan selectable featured" data-tipo="personalizado" onclick="seleccionarTipo(this)">
             <div class="plan-icon">💌</div>
             <div class="plan-info"><strong>Personalizado ⭐</strong><span>Nombre + tu mensaje propio</span></div>
-            <div class="plan-price"></div>
           </div>
-          <div class="carta-plan">
+          <div class="carta-plan selectable" data-tipo="premium" onclick="seleccionarTipo(this)">
             <div class="plan-icon">✨</div>
-            <div class="plan-info"><strong>Premium</strong><span>Nombre + mensaje + foto del arreglo</span></div>
-            <div class="plan-price"></div>
+            <div class="plan-info"><strong>Premium</strong><span>Nombre + mensaje + foto</span></div>
           </div>
         </div>
+
+        <!-- Inputs dinámicos según tipo seleccionado -->
+        <div class="carta-inputs" id="cartaInputs">
+          <!-- Básico: solo nombre -->
+          <div class="input-grupo" id="inputGrupoBasico">
+            <input type="text" id="cartaNombreBasico" class="carta-input" placeholder="Nombre del destinatario 🌸" maxlength="40">
+          </div>
+          <!-- Personalizado: nombre + mensaje -->
+          <div class="input-grupo hidden" id="inputGrupoPersonalizado">
+            <input type="text" id="cartaNombrePersonalizado" class="carta-input" placeholder="Nombre del destinatario 🌸" maxlength="40">
+            <textarea id="cartaMensajePersonalizado" class="carta-input carta-textarea" placeholder="Escribe tu mensaje aquí... 💌" maxlength="200" rows="3"></textarea>
+          </div>
+          <!-- Premium: nombre + mensaje + foto -->
+          <div class="input-grupo hidden" id="inputGrupoPremium">
+            <input type="text" id="cartaNombrePremium" class="carta-input" placeholder="Nombre del destinatario 🌸" maxlength="40">
+            <textarea id="cartaMensajePremium" class="carta-input carta-textarea" placeholder="Escribe tu mensaje especial... ✨" maxlength="200" rows="3"></textarea>
+            <label class="carta-file-label" for="cartaFotoPremium">
+              <span id="cartaFotoLabel">📷 Subir foto del arreglo (opcional)</span>
+              <input type="file" id="cartaFotoPremium" accept="image/*" onchange="actualizarLabelFoto(this)">
+            </label>
+          </div>
+          <button class="btn-demo-preview" onclick="playDemo()">Ver previsualización 💌</button>
+        </div>
+
         <a href="https://wa.me/593984140488?text=Hola!%20Quiero%20una%20carta%20digital%20personalizada%20💌" class="btn-primary" target="_blank">Quiero una carta digital</a>
       </div>
       <div class="carta-demo reveal">
@@ -894,6 +915,9 @@
               <div class="demo-msg-inner">
                 <p class="demo-msg-eyebrow">Con todo mi amor</p>
                 <h4 class="demo-msg-title">Para ti, amor mío 🌸</h4>
+                <div class="demo-msg-foto hidden" id="demoMsgFoto">
+                  <img id="demoMsgFotoImg" src="" alt="Foto del arreglo">
+                </div>
                 <p class="demo-msg-body">Porque cada día contigo<br>es el más bonito de mi vida.<br><em>Te amo infinito.</em></p>
                 <p class="demo-msg-sign">Tu persona favorita 💕</p>
               </div>
