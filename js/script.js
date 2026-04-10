@@ -416,6 +416,17 @@ function formatDate(ts){
 // ══ DEMO CARTA DIGITAL ══
 let demoPlayed = false;
 
+const cartasDemo = [
+  { eyebrow: 'Con todo mi amor', title: 'Para ti, amor mío 🌸', body: 'Porque cada día contigo\nes el más bonito de mi vida.\n<em>Te amo infinito.</em>', sign: 'Tu persona favorita 💕' },
+  { eyebrow: 'En este día especial', title: '¡Feliz cumpleaños! 🎂', body: 'Que este día esté lleno\nde todo lo que te hace sonreír.\n<em>Eres increíble.</em>', sign: 'Con mucho cariño 🌸' },
+  { eyebrow: 'Siempre en mi corazón', title: 'Te extraño tanto ✨', body: 'La distancia no cambia\nlo mucho que te quiero.\n<em>Siempre contigo.</em>', sign: 'Para siempre tuyo/a 💖' },
+  { eyebrow: 'Un pequeño recordatorio', title: 'Eres lo mejor 💌', body: 'Solo quería decirte\nque haces todo más bonito.\n<em>Gracias por existir.</em>', sign: 'Con amor eterno 🌺' },
+  { eyebrow: 'Hoy y siempre', title: 'Mi persona favorita 🦋', body: 'No necesito una razón\npara pensar en ti.\n<em>Simplemente te quiero.</em>', sign: 'Tuyo/a para siempre 💫' },
+  { eyebrow: 'En este momento especial', title: '¡Lo lograste! 🎓', body: 'Tu esfuerzo y dedicación\ndan frutos increíbles.\n<em>Estoy muy orgulloso/a de ti.</em>', sign: 'Con todo mi orgullo 🌟' },
+  { eyebrow: 'Desde el fondo de mi alma', title: 'Gracias por todo 🌹', body: 'Por cada momento,\npor cada abrazo, por cada sonrisa.\n<em>No sé qué haría sin ti.</em>', sign: 'Con amor infinito 💗' },
+  { eyebrow: 'Para recordarte', title: 'Eres mi felicidad 🌈', body: 'Cuando estás cerca\nel mundo tiene más color.\n<em>Nunca lo olvides.</em>', sign: 'El/La que más te quiere 🌸' },
+];
+
 function playDemo(){
   if(demoPlayed) return;
   demoPlayed = true;
@@ -424,6 +435,13 @@ function playDemo(){
   const seal = document.getElementById('demoSeal');
   const env  = document.getElementById('demoEnv');
   const msg  = document.getElementById('demoMsg');
+
+  // Elegir carta aleatoria
+  const carta = cartasDemo[Math.floor(Math.random() * cartasDemo.length)];
+  msg.querySelector('.demo-msg-eyebrow').textContent = carta.eyebrow;
+  msg.querySelector('.demo-msg-title').textContent = carta.title;
+  msg.querySelector('.demo-msg-body').innerHTML = carta.body.replace(/\n/g, '<br>');
+  msg.querySelector('.demo-msg-sign').textContent = carta.sign;
 
   setTimeout(()=>{ flap.classList.add('open'); seal.style.opacity='0'; }, 200);
   setTimeout(()=>{ card.classList.add('rising'); }, 800);
