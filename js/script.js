@@ -191,8 +191,28 @@ document.getElementById('cartClear').addEventListener('click', ()=>{
   cart = []; updateCart();
 });
 
-function orderProduct(name){
-  const msg = encodeURIComponent(`Hola! Me interesa pedir: ${name} 🌸 ¿Pueden darme más información y disponibilidad?`);
+// Mapa de categorías: data-cat → etiqueta amigable con emoji
+const categoriaLabels = {
+  arreglos:  '🌸 Arreglos de Flores',
+  munecas:   '🎀 Muñecas Decoradas',
+  vinos:     '🍷 Vinos & Licores',
+  chocolate: '🍫 Chocolates',
+  sorpresa:  '🎁 Cajas Sorpresa',
+};
+
+function orderProduct(btn) {
+  const card = btn.closest('.product-card');
+  const nombre = card.querySelector('.product-info h3')?.textContent.trim() || 'Producto sin nombre';
+  const catKey = card.dataset.cat || '';
+  const categoria = categoriaLabels[catKey] || catKey;
+
+  const msg = encodeURIComponent(
+    `Hola 😊, vi su catálogo y me interesa este producto:\n` +
+    `✨ ${nombre}\n` +
+    `📂 Categoría: ${categoria}\n\n` +
+    `¿Está disponible? Me gustaría hacer el pedido 🙌`
+  );
+
   incrementCounter();
   window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
 }
