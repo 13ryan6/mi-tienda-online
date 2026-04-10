@@ -177,17 +177,15 @@ function addToCart(btn, price){
 }
 
 function updateCart(){
-  const total = cart.reduce((s,i)=>s+i.price*i.qty, 0);
   const count = cart.reduce((s,i)=>s+i.qty, 0);
-  cartSummary.textContent = `${count} producto${count>1?'s':''} · $${total.toFixed(2)}`;
+  cartSummary.textContent = `${count} producto${count>1?'s':''}`;
   cartBar.classList.toggle('hidden', cart.length===0);
 }
 
 document.getElementById('cartCheckout').addEventListener('click', ()=>{
   if(!cart.length) return;
-  const items = cart.map(i=>`• ${i.name} x${i.qty} = $${(i.price*i.qty).toFixed(2)}`).join('\n');
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2);
-  const msg = encodeURIComponent(`Hola! Quiero hacer el siguiente pedido 🌸\n\n${items}\n\nTotal: $${total}\n\n¿Pueden confirmarme disponibilidad?`);
+  const items = cart.map(i=>`• ${i.name}${i.qty > 1 ? ` x${i.qty}` : ''}`).join('\n');
+  const msg = encodeURIComponent(`Hola! 😊 Quiero consultar por los siguientes productos:\n\n${items}\n\n¿Están disponibles? Me gustaría hacer el pedido 🙌`);
   incrementCounter();
   window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
 });
