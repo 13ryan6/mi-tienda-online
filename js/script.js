@@ -160,15 +160,20 @@ let cart = [];
 const cartBar = document.getElementById('cartBar');
 const cartSummary = document.getElementById('cartSummary');
 
-function addToCart(name, price){
+function addToCart(btn, price){
+  const card = btn.closest('.product-card');
+  const name = card.querySelector('.product-info h3')?.textContent.trim() || 'Producto sin nombre';
+  const catKey = card.dataset.cat || '';
+  const categoria = categoriaLabels[catKey] || catKey;
+
   const existing = cart.find(i=>i.name===name);
   if(existing){ existing.qty++; } else { cart.push({name, price, qty:1}); }
   updateCart();
-  const btn = event.target;
+
   btn.textContent = '✓ Agregado';
   btn.style.background = '#2d6a4f';
   btn.style.color = 'white';
-  setTimeout(()=>{ btn.textContent = '+ Agregar'; btn.style.background=''; btn.style.color=''; }, 1200);
+  setTimeout(()=>{ btn.textContent = '+ Consultar'; btn.style.background=''; btn.style.color=''; }, 1200);
 }
 
 function updateCart(){
