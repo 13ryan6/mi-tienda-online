@@ -304,7 +304,12 @@ a { text-decoration:none; }
 .product-card:hover .product-info h3 { color:var(--rose); }
 .product-info p { font-size:.85rem; color:var(--text-muted); line-height:1.6; margin-bottom:16px; }
 
-.product-footer { display:flex; align-items:center; justify-content:space-between; }
+.product-footer { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.product-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem; font-weight:600; color:var(--rose);
+  white-space:nowrap;
+}
 .price {
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(1.3rem,3vw,1.6rem); font-weight:600; color:var(--rose);
