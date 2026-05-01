@@ -870,3 +870,49 @@ footer { background:#0d0608; padding:60px 0 32px; }
 }
 
 .gallery-img { cursor: zoom-in; }
+
+/* ── BADGES DE PRODUCTO ── */
+.product-img-wrap { position: relative; }
+.product-badge {
+  position: absolute; top: 10px; left: 10px; z-index: 10;
+  font-size: .72rem; font-weight: 600; padding: 4px 10px;
+  border-radius: 20px; white-space: nowrap;
+  font-family: 'Jost', sans-serif; letter-spacing: .02em;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+.badge-top    { background: #D85A30; color: #fff; }
+.badge-regalo { background: #7B4FA6; color: #fff; }
+.badge-choco  { background: #5C3317; color: #fff; }
+.badge-excl   { background: #B8952A; color: #fff; }
+.badge-grad   { background: #2A7A4B; color: #fff; }
+
+/* ── BANNER DE URGENCIA ── */
+.urgencia-banner {
+  background: linear-gradient(135deg, var(--rose-dark, #8B2252), var(--rose, #c4547e));
+  color: #fff; text-align: center;
+  padding: 12px 20px; display: flex;
+  align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.urgencia-icon { font-size: 1.2rem; }
+.urgencia-texto { font-size: .9rem; font-family: 'Jost', sans-serif; }
+.urgencia-cta {
+  background: #fff; color: var(--rose-dark, #8B2252);
+  padding: 6px 16px; border-radius: 20px;
+  font-size: .8rem; font-weight: 600;
+  text-decoration: none; white-space: nowrap;
+  font-family: 'Jost', sans-serif;
+  transition: transform .2s;
+}
+.urgencia-cta:hover { transform: scale(1.05); }
+
+/* ── RESEÑAS FIJAS ── */
+.static-review {
+  background: var(--white, #fff);
+  border: 1px solid #f0e0e8;
+  border-radius: 16px; padding: 20px 22px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.review-stars { color: #D4A843; font-size: 1.1rem; letter-spacing: 2px; }
+.review-text  { font-size: .9rem; color: #555; line-height: 1.6; font-style: italic; margin: 0; }
+.review-author{ font-size: .82rem; font-weight: 600; color: #888; margin: 0; }
