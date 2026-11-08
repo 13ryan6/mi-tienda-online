@@ -1,3 +1,4 @@
+
 // ══ FIREBASE CONFIG ══
 const firebaseConfig = {
   apiKey: "AIzaSyADq1FoK6yqYVlMa742CPtBiK_dX51nZXM",
@@ -12,6 +13,9 @@ const firebaseConfig = {
 // Inicializar Firebase usando CDN compat (sin módulos)
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
+
+// ══ WHATSAPP DE DETALLES CREATIVOS ══
+const WHATSAPP_NUMBER = '593998926508';
 
 // ══ LOADER ══
 window.addEventListener('load', () => {
@@ -187,7 +191,7 @@ document.getElementById('cartCheckout').addEventListener('click', ()=>{
   const items = cart.map(i=>`• ${i.name}${i.qty > 1 ? ` x${i.qty}` : ''}`).join('\n');
   const msg = encodeURIComponent(`Hola! 😊 Quiero consultar por los siguientes productos:\n\n${items}\n\n¿Están disponibles? Me gustaría hacer el pedido 🙌`);
   incrementCounter();
-  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
 });
 
 document.getElementById('cartClear').addEventListener('click', ()=>{
@@ -217,13 +221,13 @@ function orderProduct(btn) {
   );
 
   incrementCounter();
-  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
 }
 
 function sendOrder(tipo){
   const msg = encodeURIComponent(`Hola! Estoy interesada/o en ${tipo} 🌸 ¿Me pueden dar más información?`);
   incrementCounter();
-  window.open(`https://wa.me/593984140488?text=${msg}`, '_blank');
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
 }
 
 // ══ CONTADOR DE PEDIDOS (Firebase) ══
@@ -770,3 +774,4 @@ function lbNav(dir) {
     cnt.textContent = `${lbIndex + 1} / ${lbImages.length}`;
   }, 150);
 }
+
