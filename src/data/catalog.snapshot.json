@@ -1,0 +1,644 @@
+{
+ "generatedFrom": "index.html (main) — respaldo si Supabase no responde",
+ "products": [
+  {
+   "position": 1,
+   "slug": "esmeralda-chocolate-premium",
+   "name": "Esmeralda & Chocolate Premium",
+   "description": "Rosas de listón esmeralda decoradas con perlas, envueltas en papel geométrico minimalista. Incluye chocolates premium dorados — elegancia y dulzura en un solo regalo.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "🍫 Con chocolate",
+    "type": "choco"
+   },
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esmeralda-chocolate-premium-1.jpg",
+     "alt": "Arreglo 1"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esmeralda-chocolate-premium-2.jpg",
+     "alt": "Arreglo 1 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 2,
+   "slug": "amanecer-dorado",
+   "name": "Amanecer Dorado",
+   "description": "Rosas amarillas satinadas con hojas verdes y chocolates en base de tul blanco. Envoltorio blanco con bordes dorados, ideal para celebrar éxitos y amistades.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/amanecer-dorado-1.jpg",
+     "alt": "Arreglo 2"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/amanecer-dorado-2.jpg",
+     "alt": "Arreglo 2 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 3,
+   "slug": "fantasia-celeste-vuelo-de-oro",
+   "name": "Fantasía Celeste & Vuelo de Oro",
+   "description": "Transición de azules desde celeste hasta azul rey, coronada por una mariposa dorada calada. Lazo de seda celeste y papel translúcido para momentos inolvidables.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "⭐ Más pedido",
+    "type": "top"
+   },
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/fantasia-celeste-vuelo-de-oro-1.jpg",
+     "alt": "Arreglo 3"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/fantasia-celeste-vuelo-de-oro-2.jpg",
+     "alt": "Arreglo 3 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 4,
+   "slug": "contraste-galante",
+   "name": "Contraste Galante",
+   "description": "Rosas fucsia profundo rodeando un girasol central con mariposa plateada. Envoltorio origami crema con líneas negras — moderno y audaz para personalidades fuertes.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/contraste-galante-1.jpg",
+     "alt": "Arreglo 4"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/contraste-galante-2.jpg",
+     "alt": "Arreglo 4 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 5,
+   "slug": "corona-del-sol",
+   "name": "Corona del Sol",
+   "description": "Degradación de rosas naranja, blancas y un girasol central, con lazo verde bosque. Transmite optimismo y vitalidad en cada pétalo.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "⭐ Más pedido",
+    "type": "top"
+   },
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/corona-del-sol-1.jpg",
+     "alt": "Arreglo 5"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/corona-del-sol-2.jpg",
+     "alt": "Arreglo 5 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 6,
+   "slug": "pasion-en-contraste",
+   "name": "Pasión en Contraste",
+   "description": "Rosas rojo pasión rodeadas de rosadas, selladas con lazo verde manzana. El contraste clásico del romance con un toque festivo y fresco.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/pasion-en-contraste-1.jpg",
+     "alt": "Arreglo 6"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/pasion-en-contraste-2.jpg",
+     "alt": "Arreglo 6 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 7,
+   "slug": "amanecer-de-pasion",
+   "name": "Amanecer de Pasión",
+   "description": "Girasol de listón protagonista rodeado de rosas rojas, con listón 'Love you forever'. Envoltorio rojo y dorado ideal para iluminar el día de alguien especial.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "⭐ Más pedido",
+    "type": "top"
+   },
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/amanecer-de-pasion-1.jpg",
+     "alt": "Arreglo 7"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/amanecer-de-pasion-2.jpg",
+     "alt": "Arreglo 7 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 8,
+   "slug": "tesoro-de-dulzura",
+   "name": "Tesoro de Dulzura",
+   "description": "Rosas rojas y durazno con mariposas doradas y chocolates finos entre los pétalos. Papel con puntos dorados para una celebración romántica y festiva.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/tesoro-de-dulzura-1.jpg",
+     "alt": "Arreglo 8"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/tesoro-de-dulzura-2.jpg",
+     "alt": "Arreglo 8 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 9,
+   "slug": "gala-de-rosas",
+   "name": "Gala de Rosas",
+   "description": "Contraste rojo intenso y crema con mariposa monarca dorada al centro. Envoltorio negro geométrico — lujo y distinción para aniversarios importantes.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/gala-de-rosas-1.jpg",
+     "alt": "Arreglo 9"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/gala-de-rosas-2.jpg",
+     "alt": "Arreglo 9 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 10,
+   "slug": "elegancia-en-contraste",
+   "name": "Elegancia en Contraste",
+   "description": "Rosas amarillas de listón en papel coreano negro con detalles dorados y gypsophila. Exclusivo y moderno para celebraciones que salen de lo convencional.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/elegancia-en-contraste-1.jpg",
+     "alt": "Arreglo 10"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/elegancia-en-contraste-2.jpg",
+     "alt": "Arreglo 10 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 11,
+   "slug": "esencia-de-mariposa",
+   "name": "Esencia de Mariposa",
+   "description": "Pequeñas rosas rosa pastel y malva en recipientes dorados, coronadas por mariposa dorada. Listón con 'Love' — el regalo perfecto para expresar cariño detallista.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esencia-de-mariposa-1.jpg",
+     "alt": "Arreglo 11"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esencia-de-mariposa-2.jpg",
+     "alt": "Arreglo 11"
+    }
+   ]
+  },
+  {
+   "position": 12,
+   "slug": "corazon-de-chocolate-gala",
+   "name": "Corazón de Chocolate & Gala",
+   "description": "Caja corazón con rosas durazno eternas y bombones de chocolate premium integrados. Tonos cálidos y brillantes para aniversarios y sorpresas especiales.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "🍫 Con chocolate",
+    "type": "choco"
+   },
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/corazon-de-chocolate-gala-1.jpg",
+     "alt": "Arreglo 12"
+    }
+   ]
+  },
+  {
+   "position": 13,
+   "slug": "esmeralda-estelar",
+   "name": "Esmeralda Estelar",
+   "description": "Rosa verde bosque en papel coreano rosa pastel con siluetas doradas. Lazo de satén verde oscuro — misterio y elegancia en un solo detalle.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esmeralda-estelar-1.jpg",
+     "alt": "Arreglo 13"
+    }
+   ]
+  },
+  {
+   "position": 14,
+   "slug": "naranja-citrico-amor",
+   "name": "Naranja Cítrico & Amor",
+   "description": "Rosa naranja cítrico de listón rodeada de gypsophila natural. Envoltorio blanco con líneas doradas y cinta 'Love' — sentimientos claros y llenos de energía.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/naranja-citrico-amor-1.jpg",
+     "alt": "Arreglo 14"
+    }
+   ]
+  },
+  {
+   "position": 15,
+   "slug": "suspiro-de-durazno",
+   "name": "Suspiro de Durazno",
+   "description": "Rosa crema/durazno con gypsophila blanca y lazo verde lima. Envoltorio minimalista gris y blanco — delicadeza moderna hecha flor.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/suspiro-de-durazno-1.jpg",
+     "alt": "Arreglo 15"
+    }
+   ]
+  },
+  {
+   "position": 16,
+   "slug": "cielo-radiante",
+   "name": "Cielo Radiante",
+   "description": "Azul turquesa con nube (baby's breath), envoltorio crema con bordes negros. Contraste sofisticado ideal para cumpleaños y logros especiales.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/cielo-radiante-1.jpg",
+     "alt": "Arreglo 16"
+    }
+   ]
+  },
+  {
+   "position": 17,
+   "slug": "destello-de-pureza",
+   "name": "Destello de Pureza",
+   "description": "Rosa blanca eterna en papel translúcido con mariposas y red dorada. Inscripción 'Love' — perfecto para aniversarios y declaraciones románticas sutiles.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/destello-de-pureza-1.jpg",
+     "alt": "Arreglo 17"
+    }
+   ]
+  },
+  {
+   "position": 18,
+   "slug": "azul-imperial",
+   "name": "Azul Imperial",
+   "description": "Rosa azul profundo sobre abanico de papel plisado blanco con malla dorada. Sobrio y elegante para expresar respeto y admiración profunda.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/azul-imperial-1.jpg",
+     "alt": "Arreglo 18"
+    }
+   ]
+  },
+  {
+   "position": 19,
+   "slug": "musa-de-luna",
+   "name": "Musa de Luna",
+   "description": "Rosa pastel con envoltorio ilustrado de lunas y rostros — aire soñador y delicado. Ideal para expresar ternura y un cariño fuera de este mundo.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/musa-de-luna-1.jpg",
+     "alt": "Arreglo 19"
+    }
+   ]
+  },
+  {
+   "position": 20,
+   "slug": "pasion-dorada",
+   "name": "Pasión Dorada",
+   "description": "Rosa roja en papel mármol con destellos dorados y listón 'Love you forever'. Una declaración de amor intensa para quienes no tienen dudas.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/pasion-dorada-1.jpg",
+     "alt": "Arreglo 20"
+    }
+   ]
+  },
+  {
+   "position": 21,
+   "slug": "sol-de-invierno",
+   "name": "Sol de Invierno",
+   "description": "Rosa amarilla radiante en envoltorio translúcido con malla dorada. Simboliza optimismo y gratitud — perfecta para iluminar el día de alguien especial.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/sol-de-invierno-1.jpg",
+     "alt": "Arreglo 21"
+    }
+   ]
+  },
+  {
+   "position": 22,
+   "slug": "vuelo-de-girasol",
+   "name": "Vuelo de Girasol",
+   "description": "Rosas de listón hechas a mano donde cada pétalo brilla con luz propia. Mariposa monarca en la cima y hojas verdes — detalle artesanal de ensueño.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "arreglos-de-flores",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/vuelo-de-girasol-1.jpg",
+     "alt": "Arreglo 22"
+    }
+   ]
+  },
+  {
+   "position": 23,
+   "slug": "el-cofre-del-triunfo",
+   "name": "El Cofre del Triunfo",
+   "description": "Caja roja con vino español y arreglo artesanal de rosas crema, azul y rojo. Monedas doradas y relleno brillante para un unboxing y brindis inolvidable.",
+   "price": 10,
+   "priceFrom": true,
+   "badge": {
+    "label": "🎁 Ideal para regalo",
+    "type": "regalo"
+   },
+   "categorySlug": "vinos",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/el-cofre-del-triunfo-1.jpg",
+     "alt": "Vino 1"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/el-cofre-del-triunfo-2.jpg",
+     "alt": "Vino 1 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 24,
+   "slug": "gala-de-zafiro-floral",
+   "name": "Gala de Zafiro Floral",
+   "description": "Muñeca con corpiño floral y falda azul vibrante en técnica de bucles con perlas. Elegante y festiva para celebraciones especiales de día.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/gala-de-zafiro-floral-1.jpg",
+     "alt": "Muñeca categoría 1"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/gala-de-zafiro-floral-2.jpg",
+     "alt": "Muñeca categoría 1"
+    }
+   ]
+  },
+  {
+   "position": 25,
+   "slug": "elegancia-aurea",
+   "name": "Elegancia Áurea",
+   "description": "Corpiño de encaje y falda amarillo intenso con una pequeña rosa en la mano. Alegría y calidez sacadas de un cuento de hadas clásico.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/elegancia-aurea-1.jpg",
+     "alt": "Muñeca categoría 2"
+    }
+   ]
+  },
+  {
+   "position": 26,
+   "slug": "magica-alborada",
+   "name": "Mágica Alborada",
+   "description": "Hada con peinado verde neón, vestido blanco de bucles y alas doradas geométricas. Etérea y mágica — perfecta para ambientes de fantasía.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/magica-alborada-1.jpg",
+     "alt": "Muñeca categoría 3"
+    }
+   ]
+  },
+  {
+   "position": 27,
+   "slug": "realeza-de-carmin",
+   "name": "Realeza de Carmín",
+   "description": "Muñeca en rojo profundo con encaje, cinturón dorado y rosa roja en mano. Intensidad y elegancia clásica para destacar en cualquier ocasión.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": {
+    "label": "👑 Exclusivo",
+    "type": "excl"
+   },
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/realeza-de-carmin-1.jpg",
+     "alt": "Muñeca categoría 4"
+    }
+   ]
+  },
+  {
+   "position": 28,
+   "slug": "primavera-esmeralda",
+   "name": "Primavera Esmeralda",
+   "description": "Corpiño verde limón con gemas formando una flor central y falda voluminosa. Captura la esencia de la naturaleza en su estado más radiante.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/primavera-esmeralda-1.jpg",
+     "alt": "Muñeca categoría 5"
+    }
+   ]
+  },
+  {
+   "position": 29,
+   "slug": "soberania-verde",
+   "name": "Soberanía Verde",
+   "description": "Verde bosque con cinturón dorado ancho y flores de papel lavanda y naranja al fondo. Estabilidad y belleza silvestre con toque artesanal.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/soberania-verde-1.jpg",
+     "alt": "Muñeca categoría 6"
+    }
+   ]
+  },
+  {
+   "position": 30,
+   "slug": "el-brillo-del-triunfo",
+   "name": "El Brillo del Triunfo",
+   "description": "Muñeca de graduación personalizada — un recuerdo artesanal de las noches de estudio. El homenaje perfecto para quien está lista para conquistar el mundo.",
+   "price": 20,
+   "priceFrom": true,
+   "badge": {
+    "label": "🎓 Para graduación",
+    "type": "grad"
+   },
+   "categorySlug": "munecas",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/el-brillo-del-triunfo-1.jpg",
+     "alt": "Muñeca categoría 6"
+    }
+   ]
+  },
+  {
+   "position": 31,
+   "slug": "toque-de-encaje-blanco",
+   "name": "Toque de Encaje Blanco",
+   "description": "Cajita origami blanca con cuello de camisa, encaje blanco y lazo rosa pastel con pedrería. Romanticismo y buen gusto para bodas, bautizos o comuniones.",
+   "price": 1,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "detalles-sorpresa",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/toque-de-encaje-blanco-1.jpg",
+     "alt": "Detalle sorpresa vista 1"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/toque-de-encaje-blanco-2.jpg",
+     "alt": "Detalle sorpresa vista 2"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/toque-de-encaje-blanco-3.jpg",
+     "alt": "Detalle sorpresa vista 3"
+    }
+   ]
+  },
+  {
+   "position": 32,
+   "slug": "esmeralda-real-dulzura",
+   "name": "Esmeralda Real & Dulzura",
+   "description": "Rosas de listón esmeralda con perlas y chocolates premium en papel geométrico. Exclusivo y moderno — elegancia y dulzura juntas.",
+   "price": 15,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "flores-con-chocolate",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esmeralda-real-dulzura-1.jpg",
+     "alt": "Flores con chocolate 1"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/esmeralda-real-dulzura-2.jpg",
+     "alt": "Flores con chocolate 1 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 33,
+   "slug": "soberania-imperial",
+   "name": "Soberanía Imperial",
+   "description": "Rosas rojo aterciopelado coronadas por joyería dorada en envoltorio oscuro con detalles áureos. El regalo para quien merece un trato de realeza.",
+   "price": 15,
+   "priceFrom": true,
+   "badge": {
+    "label": "👑 Exclusivo",
+    "type": "excl"
+   },
+   "categorySlug": "flores-con-chocolate",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/soberania-imperial-1.jpg",
+     "alt": "Flores con chocolate 2"
+    },
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/soberania-imperial-2.jpg",
+     "alt": "Flores con chocolate 2 vista 2"
+    }
+   ]
+  },
+  {
+   "position": 34,
+   "slug": "corazon-de-gala",
+   "name": "Corazón de Gala",
+   "description": "Caja corazón con rosas durazno y bombones de chocolate integrados. Tonos cálidos de gala para aniversarios y momentos inolvidables.",
+   "price": 15,
+   "priceFrom": true,
+   "badge": null,
+   "categorySlug": "flores-con-chocolate",
+   "images": [
+    {
+     "url": "https://qnzlevcohuiizqkcizzz.supabase.co/storage/v1/object/public/products/corazon-de-gala-1.jpg",
+     "alt": "Flores con chocolate 3"
+    }
+   ]
+  }
+ ]
+}
